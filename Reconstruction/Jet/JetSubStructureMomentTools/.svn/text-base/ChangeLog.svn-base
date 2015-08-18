@@ -1,0 +1,368 @@
+2015-07-02 Miles Wu <mileswu@uchicago.edu>
+	* EnergyCorrelator: Make ECF4 and C3 optional (by default turned off; controlled with IncludeECF4) (ATLJETMET-407)
+	* Tagging as 00-01-21
+
+2015-06-19 Miles Wu <mileswu@uchicago.edu>
+	* EnergyCorrelator: Add ECF4 and C3
+	* Tagging as 00-01-20
+
+2015-06-19 Miles Wu <mileswu@uchicago.edu>
+	* Add exclusive kT subjet finding (ATLJETMET-229)
+	* Add author/radius info to subjets (ATLJETMET-24)
+	* Tagging as 00-01-19
+
+2015-06-18 Miles Wu <mileswu@uchicago.edu>
+	* Add BosonTag v2 (from Giordon Stark <kratsg@gmail.com>)
+	* Tagging as 00-01-18
+
+2015-06-18 Miles Wu <mileswu@uchicago.edu>
+	* NsubjettinessRatiosTool: fix int/float mismatch errors (ATLJETMET-375)
+	* Tagging as 00-01-17
+
+2015-06-18 Miles Wu <mileswu@uchicago.edu>
+	* Add missing python dictionary entry for BosonTag
+
+2015-05-13    <delsart@localhost>
+
+	* Adding QwTool to set the Qw moment. See ATLJETMET-340 and JetSubStructureUtils-00-02-10
+	* Tagging as 00-01-16
+
+2015-04-06 Miles Wu <mileswu@uchicago.edu>
+	* Add W Boson tagger (from Giordon Stark <kratsg@gmail.com>)
+	  - Tested in RootCore
+	* Tagging as 00-01-15
+
+2015-03-17 Miles Wu <mileswu@uchicago.edu>
+	* RootCore: RootCore fixes
+	* Tagging as 00-01-14
+
+2015-02-09 Miles Wu <mileswu@uchicago.edu>
+	* RootCore: Add JetRec dependency and pedantic flag
+	* Tagging as 00-01-13
+
+2015-02-09 Miles Wu <mileswu@uchicago.edu>
+	* Pull: Make tensor moments optional (IncludeTensorMoments)
+	* ECF: Have beta2 moments option (IncludeBeta2)
+	* Tagging as 00-01-12
+
+2015-01-12 Miles Wu <mileswu@uchicago.edu>
+	* SubjetRecorder: change to using rel19 JetConstituentFiller function
+	* Tagging as 00-01-11
+
+2014-12-16 Miles Wu <mileswu@uchicago.edu>
+	* Add Nsubjettiness ratios tool
+	* Add ECF ratios tool
+	* Add zero constituent check to SubjetFinder(Tool)
+	* Tagging as 00-01-10
+
+2014-12-13 Miles Wu <mileswu@uchicago.edu>
+	* Split SubjetFinderTool into SubjetFinderTool+SubjetRecorderTool
+	* Tagging as 00-01-09
+
+2014-12-13 Miles Wu <mileswu@uchicago.edu>
+	* Add subjet finder (stores subjets in their own xAOD container)
+	* Tagging as 00-01-08
+
+2014-12-11 Danilo E. Ferreira de Lima <dferreir@cern.ch>
+	* Added subjet maket.
+	* Tagged as 00-01-07.
+
+2014-12-01 Miles Wu <mileswu@uchicago.edu>
+	* Add protection against jets with zero constituents (ATLJETMET-93)
+	* Tagging as 00-01-06
+
+2014-09-30 Miles Wu <mileswu@uchicago.edu>
+	* Add Shower Deconstruction
+	* Tagging as 00-01-05
+
+2014-09-30 David Adams
+	* JetSubStructureMomentTools-00-01-04
+
+2014-09-24 David Adams
+	* cmt/Makefile.RootCore: Add dep on Asg_FastJet and explcitly list its
+	  libs.
+
+2014-09-09 Miles Wu <mileswu@uchicago.edu>
+	* Nsubjettiness: workaround for FP overflow in NormalizedMeasure
+	* Tagging JetSubStructureMomentTools-00-01-03
+
+2014-09-04  scott snyder  <snyder@bnl.gov>
+	* Tagging JetSubStructureMomentTools-00-01-02.
+	* cmt/requirements: FIx checkreq warnings.
+
+2014-08-28 David Adams
+	* JetSubStructureMomentTools-00-01-01
+
+2014-07-28 Miles Wu <mileswu@uchicago.edu>
+	* cmt/requirements: fix compilation in Athena due to move of Validator.cxx
+
+2014-07-25 David Adams
+	* JetSubStructureMomentTools: Move from Root to src so this is
+	  not build for Root.
+	* util/JetSubstructureVariables_test.cxx: Remove this main that did
+	  not compile.
+	* JetSubStructureMomentTools/KtDeltaRTool.h: Replace Gaudi include
+	  with AsgTools.
+	* cmt/Makefile.RootCore: Begin fixing for RootCore build.
+
+2014-07-17 David Adams
+	* cmt/Makefile.RootCore: Begin fixing for RootCore build.
+
+2014-07-16 Miles Wu <mileswu@uchicago.edu>
+	* Switch to using fastjet contrib's Nsubjettiness.
+	* Add Winner-Takes-All nsubjettiness
+
+2014-06-13 Miles Wu <mileswu@uchicago.edu>
+	* Add Qjets Volatility
+
+2014-05-21 David Adams
+	* JetSubStructureMomentTools-00-01-00
+	* This is for release 19.1.0
+	* Rename PullTool to JetPullTool
+	* Rename ChargeTool to JetChargeTool
+	  Change prperty name k->K
+
+2014-05-21 Miles Wu <mileswu@uchicago.edu>
+	* Add Jet charge moment
+
+2014-05-14 Miles Wu <mileswu@uchicago.edu>
+	* Add Jet pull moments
+
+2014-04-07 David Adams
+	* JetSubStructureMomentTools-00-00-08
+
+2014-04-15 Miles Wu <mileswu@uchicago.edu>
+	* EnergyCorrelator: added (relies on FastJetContrib)
+
+2014-04-07 David Adams
+	* JetSubStructureMomentTools-00-00-07
+
+2014-04-03 Miles Wu <mileswu@uchicago.edu>
+	* ZCut: bugfix for ZCut34 typo
+
+2014-03-31 David Adams
+	* JetSubStructureMomentTools-00-00-06
+
+2014-03-29 Miles Wu <mileswu@uchicago.edu>
+	* JetSubStructureUtils classes are now namespaced
+
+2014-03-28    <delsart@localhost>
+	* tag JetSubStructureMomentTools-00-00-05
+
+2014-03-25 Miles Wu <mileswu@uchicago.edu>
+	* Migrate all moments except Tau to Utils
+
+2014-03-25 Miles Wu <mileswu@uchicago.edu>
+	* Move Moments/* for CoM variables to new package
+	* Changed to map<string, double> for moment code
+
+2014-03-25    <delsart@localhost>
+
+	* Root/AngularityTool.cxx : avoid FPE 
+	* tag JetSubStructureMomentTools-00-00-04
+
+2014-03-19 David Adams
+	* JetSubStructureMomentTools-00-00-03
+
+2014-03-19 Miles Wu
+	* Various verbosity changes
+	* Center of Mass variables
+
+2014-03-18 David Adams
+	* JetSubStructureMomentTools-00-00-02
+	* NSubjettinessTool: Change event message level from WARNING to DEBUG.
+	* KTSplittingScaleTool: Change event message level from ERROR to DEBUG.
+
+2014-03-03 David Adams
+	* JetSubStructureMomentTools-00-00-01
+
+2014-03-03 David Adams
+	* Dipolarity: Change message level from INFO to DEBUG for
+	  not enough subjets.
+
+2014-02-21 Miles Wu <mileswu@uchicago.edu>
+	* Add KtMassDrop
+	* Add PlanarFlow
+	* Validator: add pt
+
+2014-02-19 Miles Wu <mileswu@uchicago.edu>
+	* Package rename to JetSubStructureMomentTools
+	* share/run.py: add ktdr
+
+2014-02-14 David Adams
+	* KtDeltaRTool: Simplify code and configuration. Fix calculation of
+	  delta-R.
+
+2014-02-12 S. Schramm
+	* KtDeltaRTool: Added base tool, originally from JetMomentTools/JetSubJetsMoments
+
+2014-02-10 David Adams <dladams@bnl.gov>
+	* Miles has added much here.
+	* AngularityTool: Add DEBUG and VERBOSE messages.
+
+2014-02-03    <delsart@localhost>
+	* clean-up for run2
+	* tag JetSubStructure-00-01-00
+	
+2014-01-27    <delsart@localhost>
+
+	* src/CachedTrackSelectorTool.h : fix other compil issue. 
+	* tag JetSubStructure-00-00-27
+
+2014-01-24  Pierre-Antoine Delsart  <delsart At in2p3.fr>
+
+	* Eigen migration. Thanks to Scott Snyder
+	* tag JetSubStructure-00-00-26
+
+2013-03-14  P-A Delsart  <delsart@localhost.localdomain>
+
+	* src/PruningTool.cxx (JetSubStructure): fastjet 3 migration (merging from branch, changes from B Chapleau) 
+	python/JSTrackJets.py : fastjet3 migration (thanks S. Schramm) 
+	* tag JetSubStructure-00-00-25
+
+2012-03-04 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * New internal way to deal with ghost assoc
+        * tag JetSubStructure-00-00-24
+
+2012-10-19 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Renaming area moments.
+        * Added AssocToJetAssociatorTool
+        * not tagging yet
+
+2012-08-27 Emily Thompson <emily.thompson@cern.ch>
+
+        * copied setupTrackSelectorTool() from JetRec to mySetupJetMomentTools.py
+	* commented out the line JetRec.TrackSelectionForJets import setupTrackSelectorTool
+	  in order to avoid calling that function from JetRec
+	* this is to avoid a dependence on JetRec-01-02-57 which was crashing
+	* this will need to be fixed back again in the future
+        * tag JetSubStructure-00-00-23
+
+
+2012-08-22 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * CLHEP2 compatibility
+        * tag JetSubStructure-00-00-22
+
+2012-07-17 Emily Thompson <emily.thompson@cern.ch>
+
+        * updated default jet trimming to PtFrac5SmallR30
+        * tag JetSubStructure-00-00-21
+
+2012-06-18 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * adding area 4 vec support
+        * fixing fpe in ktleptmethods
+        * LeptMiniIso - more properties
+        * updated track selection for rel17.2 in python/mySetupJetMomentTools.py
+        * tag JetSubStructure-00-00-20
+
+2012-05-07 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * small bug fix in JetShapesMethods.h
+        * tag JetSubStructure-00-00-19
+
+2012-04-28 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * fixed checkreq warnings
+        * tag JetSubStructure-00-00-18
+
+2012-04-28 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * adding LeptMiniIsoAlg algorithm
+        * coverity fixes
+        * tag JetSubStructure-00-00-17
+
+2012-04-16 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * adding JetShapesMethods/Tool
+        * tag JetSubStructure-00-00-16
+
+2012-04-10 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * adding miniiso 10GeV version
+        * tag JetSubStructure-00-00-15
+
+2012-04-10 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * re-organizing code layout (tool's header file in src/)
+        * everything in the JetSubStructure namespace
+        * tag JetSubStructure-00-00-14
+
+2012-04-06 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * merging with 11-branch
+
+2011-12-12 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Updating calib constants (rel17)
+        * tag JetSubStructure-00-00-13
+
+2011-10-12 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Updating calib constants for CamKt12LCTopoSplitFilteredJets
+        * tag JetSubStructure-00-00-12
+
+2011-08-19 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Adding PruningTool --> rel17 only 
+        * tag JetSubStructure-00-00-11
+
+2011-08-17 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Clean up: removed unnecessary queryInterface methods
+        * Track jets: constituents (tracks) corrected for jet vertex position
+          prior any grooming procedure and/or substructure observables calculation.
+        * Introduced two tools (TrackVertexCorrTool, CachedTrackSelectorTool) for caching.
+          cpu time(# of trackJets collections) ~ constant.
+        * tag JetSubStructure-00-00-10
+
+2011-08-08 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Coverity warning fixes
+        * tag JetSubStructure-00-00-09
+
+2011-08-02 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * BDRSFilteringTool: only saving NSubjets subjets
+        * JetAssociationTool: JetAlgTools name must = association name + "Jets"
+        * tag JetSubStructure-00-00-08
+
+2011-07-25 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Fix for 64 bit compability
+        * tag JetSubStructure-00-00-07
+
+2011-07-19 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Allow the grooming tools to save config params as jet moments
+        * More sanity checks added to JetAssociationTool
+        * Ability to establish double-sided associations (parent jet <--> groomed jets)
+        * tag JetSubStructure-00-00-06
+
+2011-07-14 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Modified BDRSFilteringTool
+        * tag JetSubStructure-00-00-05
+
+2011-07-12 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Fixed compiler + checkreq warnings
+        * tag JetSubStructure-00-00-04
+
+2011-07-06 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Migrated jobOptions to python functions
+        * tag JetSubStructure-00-00-03
+
+2011-07-03 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+        * Record groomed JetCollections to StoreGate even if empty
+        * tag JetSubStructure-00-00-02
+
+2011-06-24 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+
+	* initial import
+	* tag JetSubStructure-00-00-01

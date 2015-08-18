@@ -1,0 +1,223 @@
+2015-03-14 Emmanuel Le Guirriec obo Yann Coadou
+	* Specific pointer (hPointerTree) to load Egamma MVA TTree.
+	* tagged as: JetTagCalibration-00-02-28
+
+2015-03-14 Yann Coadou
+	* Switch back to using objectExists despite small mem leak to avoid unwarranted ERROR messages
+	* tagged as JetTagCalibration-00-02-27
+
+2015-03-10 Yann Coadou
+	* Switch to RUN12 calib DB folder instead of ALL (requested by release managers)
+	* tagged as JetTagCalibration-00-02-26
+
+2015-03-01 Wouter van den Wollenberg
+	* added a new file in ./share to facilitate a disjunct CalibrationBroker instance for the online b-taggers.
+	* tagged as JetTagCalibration-00-02-25
+
+2013-11-13 Sebastian Fleischmann
+	* add DB folder for MVb tagger
+	* tag JetTagCalibration-00-02-12
+
+2012-11-26 Georges Aad
+	* add AntiKt4TopoEM to read by default, needed for current MV3
+	* tag: JetTagCalibration-00-02-11
+
+2012-11-25 Georges Aad
+	* tagging support for MV3 from Michael Ughetto
+	* tag: JetTagCalibration-00-02-10
+
+2012-10-17 Georges Aad
+	* support for JetFitterCharm
+	* tag: JetTagCalibration-00-02-09
+
+2012-04-26 Georges Aad
+	* add support for updating multiple tagger instance with same DB seperatly
+	* tagged as JetTagCalibration-00-02-08
+
+2012-01-29 Laurent Vacavant
+	* changed for new taggers MV1 and MV1
+	* tagged as JetTagCalibration-00-02-07
+
+2011-03-14 Georges Aad
+	* fix DB connection and folder for online
+	* tagged as JetTagCalibration-00-02-06
+
+2011-03-14 Georges Aad
+	* inherit from AthAlgTool rather than AlgTool
+	* protect DEBUG and VERBOSE MSG
+	* tagged as JetTagCalibration-00-02-05
+
+2010-12-01 Georges Aad
+	* fix
+	* tagged as JetTagCalibration-00-02-04
+
+2010-12-01 Georges Aad
+	* two muon taggers
+	* tagged as JetTagCalibration-00-02-03
+
+2010-10-22 Georges Aad
+	* small fix in jo from Giacinto
+	* tagged as JetTagCalibration-00-02-02
+
+2010-10-06 Georges Aad
+	* small fix
+	* tagged as JetTagCalibration-00-02-01
+
+
+2010-10-06 Georges Aad
+	* allow multiple alias for one jet collection and use the first valid one
+	* tagged as JetTagCalibration-00-02-00
+
+2010-10-01 Georges Aad
+	* check if TObject exist before trying to get it from the CoolHistSvc
+	* tagged as JetTagCalibration-00-01-03
+
+2010-06-03 David Quarrie <David.Quarrie@cern.ch>
+    * JetTagCalibration/CalibrationBroker.icc: Replace "uint" by "unsigned int" for MacOSX compatibility
+	* tagged as JetTagCalibration-00-01-02
+	
+2010-04-21 Laurent Vacavant
+	* moved implementation code of templated method retrieveTObject<T> to icc file
+	* tagged as JetTagCalibration-00-01-01
+
+2010-03-27 Laurent Vacavant
+	* augmented interface of CalibrationBroker to deal with any TObject: new templated method retrieveTObject<T>() 
+          which returns a pair of (T*, bool)
+	* standard method retrieveHistogram() now calls retrieveTObject<TH1>()
+	* using TObject for underlying storage
+	* tagged as JetTagCalibration-00-01-00
+
+2010-03-15 Laurent Vacavant
+	* implemented new COOL schema: only one single folder ALL (and one channel ALL).
+	* this is enabled by the BTaggingFlags.CalibrationSingleFolder flag: when true, there is only one single true DB folder, 
+        the other folders (one per tagger) are redirected to this one (shadow folders)
+	* requires BTagging-00-05-75 and the COOL tag BTagCalibALL-04-01.
+	* tagged as JetTagCalibration-00-00-24
+
+2009-10-01 Laurent Vacavant
+	* fixed linking problems in clients to due previous modification
+	* tagged as JetTagCalibration-00-00-23
+
+2009-09-29 Laurent Vacavant
+	* fixed handles bound to different objects in callbacks (bug #56273)
+	* tagged as JetTagCalibration-00-00-22
+
+2009-06-17 Laurent Vacavant
+	* modified python configuration to use ATLAS_COOLOFL_GLOBAL instead of ONL
+	* uniformized print-outs style (#BTAG#)
+	* tagged as JetTagCalibration-00-00-21
+
+2009-06-16 Cecile Lapoire <lapoire@cppm.in2p3.fr>
+	  * modified getCalibrationFileFromGUID.sh to make it work with new grid syntax
+	  * tagged as JetTagCalibration-00-00-20
+
+2009-01-16 Laurent Vacavant
+  * added AtlasROOT in requiremnets
+  * tagged as JetTagCalibration-00-00-19
+
+2008-12-30 Laurent Vacavant
+
+  * cleaned up configurable print
+  * removed calibration files in share/
+  * tagged as JetTagCalibration-00-00-18
+
+2008-09-03 Georges Aad <aad@cppm.in2p3.fr>
+
+  * add scripts to get calibration files
+  * tagged as JetTagCalibration-00-00-17
+
+
+2008-08-06 David Quarrie <David.Quarrie@cern.ch>
+
+  * src/CalibrationBroker.cxx: Add #include <sys/types.h> for MacOSX compatibility
+  * tagged as JetTagCalibration-00-00-16
+
+2008-08-05 Laurent Vacavant
+
+  * fix for aliasing: protection against none->none default alias
+  * tagged as JetTagCalibration-00-00-15
+
+2008-08-04 Laurent Vacavant
+
+  * fix for aliasing XXX->YYY: now add channel YYY to channel list if it is not there already
+  * tagged as JetTagCalibration-00-00-14
+
+2008-07-16 Laurent Vacavant
+
+  * using flag CalibrationFromCERN to force using Oracle DB at CERN (not for production!)
+  * tagged as JetTagCalibration-00-00-13
+
+2008-06-18 Laurent Vacavant
+
+  * introduced aliasing of channels, e.g. Cone4Truth->Cone4H1Tower means that 
+  calibrations from Cone4H1Tower channel will be used
+  * tagged as JetTagCalibration-00-00-12
+
+2008-03-11 Laurent Vacavant
+
+  * changed verbosity
+  * tagged as JetTagCalibration-00-00-11
+
+2008-02-24 Giacinto Piacquadio
+
+  * add JetFitterTag / JetFitterTagNN / JetFitterCOMBNN's calibration file
+  * slightly modified scripts to allow different calibrations 
+  for different jet collections 
+		
+2008-02-19 Laurent Vacavant
+
+  * clean-up for local sqlite versus cool db usages
+  * tagged as JetTagCalibration-00-00-09
+
+2008-02-15 Laurent Vacavant
+
+  * updated to use real COOL DB instead of sqlite replica
+
+2008-01-23 Laurent Vacavant
+
+  * added first calibration for JetProb
+  * updated jobO for new IOVDBSvc to add folders
+
+2008-01-16 Laurent Vacavant
+
+  * removed the print out of histograms
+  * tagged as JetTagCalibration-00-00-07
+
+2008-01-08 Laurent Vacavant
+
+  * removed the VERBOSE mode for IOVSvc (fix bugs #32487 #32506)
+  * tagged as JetTagCalibration-00-00-06
+
+2008-01-08 Laurent Vacavant
+
+  * added calibrations for SoftMu, SoftEl, JetFitter
+  * tagged as JetTagCalibration-00-00-05
+ 
+2007-12-21 Laurent Vacavant
+
+  * added in DB calibrations for all channels (jet algos)
+  * fix for checking StatusCodes
+  * updated install script for cool_insertfile
+  * tagged as JetTagCalibration-00-00-04
+
+2007-12-18 Laurent Vacavant
+
+  * changed return type of registerHistogram()
+  * updated database with Cone4H1Tower channel
+  * tagged as JetTagCalibration-00-00-03
+
+2007-12-15 Laurent Vacavant
+
+  * reimported database as binary (was not working)
+  * tagged as JetTagCalibration-00-00-02
+
+2007-12-14 Laurent Vacavant
+
+  * package now functional
+  * added new local files for calibrating IP and SV
+  * tagged as JetTagCalibration-00-00-01
+
+2007-05-08 Laurent Vacavant
+
+  * package created
+

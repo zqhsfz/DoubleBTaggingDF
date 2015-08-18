@@ -1,0 +1,36 @@
+2015-01-30  Rolf Seuster
+	* fix packaging
+	* Tagging as AtlasFastJetContrib-01-14-01
+
+2014-11-21 Miles Wu <mileswu@uchicago.edu>
+	* Made typo in last tag. Do not use 01-15-00
+	* Tagging as AtlasFastJetContrib-01-14-00
+
+2014-11-13 Miles Wu <mileswu@uchicago.edu>
+	* Switching to new versioning scheme
+	* Tagging as AtlasFastJetContrib-01-15-00
+
+2014-11-14  Rolf Seuster
+	* new version of work around
+	* Tagging as AtlasFastJetContrib-01-00-15
+
+2014-11-13 Miles Wu <mileswu@uchicago.edu>
+	* Make changes to build script, with workaround for fastjet-config
+
+2014-11-12 Rolf Seuster
+	* Update to Fastjet-contrib 1.014
+	* Tagging as AtlasFastJetContrib-01-00-14
+	* change way of building externals, now it is done inside the release
+
+2014-07-16 Miles Wu <mileswu@uchicago.edu>
+	* Update to Fastjet-contrib 1.013
+	* Tagging as AtlasFastJetContrib-01-00-13
+
+2014-06-23 Miles Wu <mileswu@uchicago.edu>
+	* Update to Fastjet-contrib 1.012
+	* Tagging as AtlasFastJetContrib-00-00-02
+
+2014-03-31 Miles Wu <mileswu@uchicago.edu>
+	* Fastjet-contrib 1.010
+	* Update linker flags
+	* Tagging as AtlasFastJetContrib-00-00-01

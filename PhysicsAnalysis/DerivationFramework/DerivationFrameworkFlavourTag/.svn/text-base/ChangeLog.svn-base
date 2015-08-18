@@ -1,0 +1,138 @@
+2015-08-10 Luca Colasurdo  <luca.colasurdo@cern.ch>
+
+	* Added the possibility to insert a user-defined list of taggers
+	* Flipped taggers run by default only in FTAG1 
+
+2015-07-23 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* Using regular expressions for TriggerSkimmingTool in FTAG3
+	* Tagged as DerivationFrameworkFlavourTag-00-01-25
+
+2015-07-22 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* BTagging_AntiKt4EMTopo added to SmartCollections in FTAG3
+	* FTAG4 skimming updated
+	* Tagged as DerivationFrameworkFlavourTag-00-01-24
+
+2015-07-22 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* both FTAG1/FTAG3 skimmings aware if running on data/MC
+	* Tagged as DerivationFrameworkFlavourTag-00-01-23
+
+2015-07-21 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* FTAG3 filtering now depends if running on data or MC
+	* Tagged as DerivationFrameworkFlavourTag-00-01-22
+
+2015-07-21 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* Trigger filtering reimplemented for FTAG3 to use the trigger decision tool
+	* Tagged as DerivationFrameworkFlavourTag-00-01-21
+
+2015-07-21 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* Removing L1topo-seeded mu-jet triggers as hyphens make derivation jobs unhappy
+	* Tagged as DerivationFrameworkFlavourTag-00-01-20
+
+2015-07-21 Liza Mijovic <liza.mijovic cern.ch>
+
+	* adding BTagging_AntiKt4EMTopo to SmartCollections, FTAG1,2,4
+	* currently needed for AntiKt4EMTopoJets HadronConeExclTruthLabelID
+	* TODO: FTAG3
+	* tagging as DerivationFrameworkFlavourTag-00-01-19
+
+2015-07-20 Andrea Coccaro  <Andrea.Coccaro AT cern.ch>
+
+	* Trigger filtering for FTAG1 and FTAG3 completely revised
+	* Tagged as DerivationFrameworkFlavourTag-00-01-18
+
+2015-07-19 Luca Colasurdo <luca.colasurdo@cern.ch>
+
+	* Enabling re-tag only negative taggers in FTAG1 derivation
+	* Tagged as DerivationFrameworkFlavourTag-00-01-17
+
+2015-07-18 Luca Colasurdo <luca.colasurdo@cern.ch>
+
+	* Tagging previous changes as DerivationFrameworkFlavourTag-00-01-16
+
+2015-07-17 Luca Colasurdo <luca.colasurdo@cern.ch>
+
+	* Changes to FlavourTagCommon.py to allow for re-tagging
+	* The new container has the suffix "NT"
+	* Added in FTAG1 the new container to the AllVariables list
+
+2015-07-01 Giacinto Piacquadio <giacinto.piacquadio@cern.ch>
+
+	* Adapted FTAG1 from L1 triggers to new HLT triggers
+	* Tagged as DerivationFrameworkFlavourTag-00-01-14
+
+2015-03-09 Thibault Guillemin <thibault.guillemin@cern.ch>
+
+	* Removed own algorithms section
+	* Tagged as DerivationFrameworkFlavourTag-00-01-03
+
+2015-03-03 Thibault Guillemin <thibault.guillemin@cern.ch>
+
+	* Calibration file update and doRecomputePV removed
+	* Tagged as DerivationFrameworkFlavourTag-00-01-02
+
+2015-02-13 James Catmore <james.catmore@cern.ch>
+
+	* Migration to release 20
+	* Tagged as DerivationFrameworkFlavourTag-00-01-00
+
+2014-12-16 Thibault Guillemin <thibault.guillemin@cern.ch>
+
+	* Different content files for Run 1 and Run 2
+	* Tagged as DerivationFrameworkFlavourTag-00-00-10
+
+2014-12-05 James Catmore <james.catmore@cern.ch>
+
+	* Adding smart slimming lists
+	* Tagged as DerivationFrameworkFlavourTag-00-00-09
+
+2014-10-06 James Catmore <james.catmore@cern.ch>
+
+	* Switching to decorations for FTAG2 and FTAG4
+	* Tagged as DerivationFrameworkFlavourTag-00-00-08
+
+2014-10-04 James Catmore <james.catmore@cern.ch>
+
+	* Removing the _v1 from egamma aux containers in contents lists"
+	* Tagged as DerivationFrameworkFlavourTag-00-00-07
+
+2014-09-30 James Catmore <james.catmore@cern.ch>
+
+	* Removing wildcards from content lists for track containers
+	* Tagged as DerivationFrameworkFlavourTag-00-00-06
+
+2014-08-14 James Catmore <james.catmore@cern.ch>
+
+	* Name changes
+	* Tagged as DerivationFrameworkFlavourTag-00-00-05
+
+2014-08-13 James Catmore <james.catmore@cern.ch>
+
+	* Modifying contents lists
+	* Tagged as DerivationFrameworkFlavourTag-00-00-04
+
+2014-08-06 James Catmore <james.catmore@cern.ch>
+
+	* Adding isMC bit ORed with triggers
+	* Tagged as DerivationFrameworkFlavourTag-00-00-03
+
+2014-08-02 James Catmore <james.catmore@cern.ch>
+
+	* Replacing e-gamma DFCommon variables with direct access from ExpressionEvaluation
+	* Tagged as DerivationFrameworkFlavourTag-00-00-02
+
+2014-07-17 James Catmore <james.catmore@cern.ch>
+
+	* Updating branch lists
+	* Tagged as DerivationFrameworkFlavourTag-00-00-01
+
+2014-07-15 James Catmore <james.catmore@cern.ch>
+
+	* Initial upload
+	* Tagged as DerivationFrameworkFlavourTag-00-00-00
+
