@@ -1,4 +1,4 @@
-#Fri Aug 14 22:12:13 2015"""Automatically generated. DO NOT EDIT please"""
+#Tue Aug 18 16:39:31 2015"""Automatically generated. DO NOT EDIT please"""
 from GaudiKernel.GaudiHandles import *
 from GaudiKernel.Proxy.Configurable import *
 
