@@ -304,8 +304,19 @@ def addFilteredJets(jetalg, rsize, inputtype, mumax=1.0, ymin=0.15, mods="dfgroo
 
 def addStandardJets(jetalg, rsize, inputtype, ptmin=2000, ptminFilter=5000,
                     mods="calib", calibOpt="none", ghostArea=0.01,
-                    algseq=None, outputGroup="CustomJets", exclusiveSubjetBuilderList=[]):
-    jetnamebase = "{0}{1}{2}".format(jetalg,int(rsize*10),inputtype)
+                    algseq=None, outputGroup="CustomJets", exclusiveSubjetBuilderList=[], **extraOptions):
+    ###############################################
+    # supported options in extraOptions:
+    # jetnamebase
+    # variableRMinRadius
+    # variableRMassScale
+    ###############################################
+
+    # "jetnamebase" can be configured through extraOptions
+    if 'jetnamebase' not in extraOptions.keys():
+        jetnamebase = "{0}{1}{2}".format(jetalg,int(rsize*10),inputtype)
+    else:
+        jetnamebase = extraOptions['jetnamebase']
     jetname = jetnamebase+"Jets"
     algname = "jetalg"+jetnamebase
     OutputJets.setdefault(outputGroup , [] ).append(jetname)
@@ -340,6 +351,11 @@ def addStandardJets(jetalg, rsize, inputtype, ptmin=2000, ptminFilter=5000,
         finderArgs['ptmin'] = ptmin
         finderArgs['ptminFilter'] = ptminFilter
         finderArgs['ghostArea'] = ghostArea
+        # configs for variable-R
+        if ("variableRMinRadius" in extraOptions.keys()) and ("variableRMassScale" in extraOptions.keys()):
+            print 'INFO: You are running varaible-R jets!'
+            finderArgs['variableRMinRadius'] = extraOptions['variableRMinRadius']
+            finderArgs['variableRMassScale'] = extraOptions['variableRMassScale']
         # no container exist. simply build a new one.
         if inputtype=="LCTopo":
             finderArgs['modifiersin'] = mods

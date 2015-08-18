@@ -187,6 +187,10 @@ exclusiveSubjetBuilderList = [
 
 OutputJets["JETM8"] = []
 
+# variable-R track-jets
+addStandardJets("AntiKt", 0.4, "PV0Track", ptmin=2000, ptminFilter=7000, mods="pv0track", calibOpt="none", ghostArea=0, algseq=jetm8Seq, outputGroup="JETM8", exclusiveSubjetBuilderList=[], jetnamebase="AntiKtVR40Rmax4Rmin0Track", variableRMinRadius=0, variableRMassScale=40000)
+addStandardJets("AntiKt", 0.4, "PV0Track", ptmin=2000, ptminFilter=7000, mods="pv0track", calibOpt="none", ghostArea=0, algseq=jetm8Seq, outputGroup="JETM8", exclusiveSubjetBuilderList=[], jetnamebase="AntiKtVR40Rmax4Rmin2Track", variableRMinRadius=0.2, variableRMassScale=40000)
+
 # AntiKt10*PtFrac5Rclus20
 addDefaultTrimmedJets(jetm8Seq,"JETM8",exclusiveSubjetBuilderList=exclusiveSubjetBuilderList)
 
@@ -208,13 +212,11 @@ addDefaultTrimmedJets(jetm8Seq,"JETM8",exclusiveSubjetBuilderList=exclusiveSubje
 #addStandardJets("AntiKt", 1.5, "PV0Track", ptmin=40000, algseq=jetm8Seq, outputGroup="JETM8")
 #addStandardJets("AntiKt", 1.0, "PV0Track", ptmin=20000, mods=[], algseq=jetm8Seq, outputGroup="JETM8", exclusiveSubjetBuilderList=exclusiveSubjetBuilderList)
 
-# variable-R track-jet
-
 # jet copy for b-tagging purpose
 # lesson learnt: For jet that has never been b-tagged before, b-tagging algorithm will make a deep copy of it and overwrite with the original one with the deep copy before b-tagging
 # This means, any link from external object to the jets, built before b-tagging, will becomes invalid. Remember, during the deep copy overwriting, even the container address gets changed!
 # Thus, one way to get around is to make another deep copy of jet collection, store them in SG with another name, and run the b-tagging on this copy collection
-#addCopyJets("NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", "AntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
+addCopyJets("NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", "AntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
 #addCopyJets("NewAntiKt10PV0TrackJets", "AntiKt10PV0TrackJets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
 
 
@@ -232,7 +234,7 @@ JetCollectionToRetag += [
                         ]
 # parent fat-jet
 JetCollectionToBtag += [
-                         #"NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets",
+                         "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets",
                          # "NewAntiKt10PV0TrackJets",
                        ]
 # all exclusive subjets
@@ -241,6 +243,8 @@ JetCollectionToBtag += [
                          "AntiKt10LCTopoTrimmedPtFrac5SmallR20ExKt3SubJets",
                          #"AntiKt10PV0TrackExKt2SubJets",
                          #"AntiKt10PV0TrackExKt3SubJets",
+                         "AntiKtVR40Rmax4Rmin0TrackJets",
+                         "AntiKtVR40Rmax4Rmin2TrackJets",
                        ]
 
 print "Jet collection to be re-tagged:",JetCollectionToRetag
@@ -254,7 +258,7 @@ JetCollectionToBtagList = [ (JetCollection, JetCollection.replace('ZTrack', 'Tra
 
 # b-tagging calibration channel aliase
 BTaggingFlags.CalibrationChannelAliases += [
-                                             #"NewAntiKt10LCTopoTrimmedPtFrac5SmallR20->AntiKt10LCTopo,AntiKt6LCTopo,AntiKt6TopoEM,AntiKt4LCTopo,AntiKt4TopoEM,AntiKt4EMTopo",
+                                             "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20->AntiKt10LCTopo,AntiKt6LCTopo,AntiKt6TopoEM,AntiKt4LCTopo,AntiKt4TopoEM,AntiKt4EMTopo",
                                              #"NewAntiKt10Track->AntiKt10Track,AntiKt6Track,AntiKt4Track,AntiKt10TopoEM,AntiKt6TopoEM,AntiKt4TopoEM,AntiKt4EMTopo",
                                            ]
 BTaggingFlags.CalibrationChannelAliases += [
@@ -262,6 +266,8 @@ BTaggingFlags.CalibrationChannelAliases += [
                                              "AntiKt10LCTopoTrimmedPtFrac5SmallR20ExKt3Sub->AntiKt4LCTopo",
                                              #"AntiKt10TrackExKt2Sub->AntiKt4Track,AntiKt4TopoEM,AntiKt4EMTopo",
                                              #"AntiKt10TrackExKt3Sub->AntiKt4Track,AntiKt4TopoEM,AntiKt4EMTopo",
+                                             "AntiKtVR40Rmax4Rmin0Track->AntiKt4Track,AntiKt4TopoEM,AntiKt4EMTopo",
+                                             "AntiKtVR40Rmax4Rmin2Track->AntiKt4Track,AntiKt4TopoEM,AntiKt4EMTopo",
                                            ]
 
 # specify tagger list:
