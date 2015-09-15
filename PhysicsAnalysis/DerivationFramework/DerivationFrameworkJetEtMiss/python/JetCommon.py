@@ -201,7 +201,7 @@ def buildGenericGroomAlg(jetalg, rsize, inputtype, groomedName, jetToolBuilder,
     algseq += alg
     return alg
 
-def buildExclusiveSubjets(JetCollectionName, jetalg, nsubjet):
+def buildExclusiveSubjets(JetCollectionName, jetalg, nsubjet, builtParentLink = False):
     from JetSubStructureMomentTools.JetSubStructureMomentToolsConf import SubjetFinderTool
     from JetSubStructureMomentTools.JetSubStructureMomentToolsConf import SubjetRecorderTool
     from AthenaCommon.AppMgr import ToolSvc
@@ -218,9 +218,13 @@ def buildExclusiveSubjets(JetCollectionName, jetalg, nsubjet):
     subjetfinder.ExclusiveNjets = nsubjet
     subjetrecorder.SubjetLabel = "Ex%s%iSubJets" % (jetalg, nsubjet)
     subjetrecorder.SubjetContainerName = SubjetContainerName
-    subjetrecorder.SubjetAlgorithm_BTAG = "AntiKt"         # for b-tagging
-    subjetrecorder.SubjetRadius_BTAG = 0.4                 # for b-tagging
+    subjetrecorder.SubjetAlgorithm_BTAG = "AntiKt"           # for b-tagging
+    subjetrecorder.SubjetRadius_BTAG = 0.4                   # for b-tagging
+    subjetrecorder.SubjetParentLink_BTAG = builtParentLink   # for b-tagging
     subjetfinder.SubjetRecorder = subjetrecorder
+
+    if builtParentLink:
+        print "Parent link was built from subjet to parent-jet. This will make code crash if you run b-tagging on parent jet!"
 
     return (subjetfinder, SubjetContainerName)
 

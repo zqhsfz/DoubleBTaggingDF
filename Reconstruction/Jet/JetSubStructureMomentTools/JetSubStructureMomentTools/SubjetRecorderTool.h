@@ -26,6 +26,7 @@ class SubjetRecorderTool :
       std::string m_subjetcontainername;
       std::string m_subjetalg;
       float       m_subjetrad;
+      bool        m_subjetParentLink;
 };
 
 

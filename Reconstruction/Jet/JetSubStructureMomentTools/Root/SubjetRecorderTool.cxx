@@ -11,12 +11,13 @@ using namespace std;
 using fastjet::PseudoJet;
 
 SubjetRecorderTool::SubjetRecorderTool(std::string name) : 
-  AsgTool(name), m_subjetlabel(""), m_subjetcontainername(""), m_subjetalg(""), m_subjetrad(0.)
+  AsgTool(name), m_subjetlabel(""), m_subjetcontainername(""), m_subjetalg(""), m_subjetrad(0.), m_subjetParentLink(false)
 {
   declareProperty("SubjetLabel", m_subjetlabel);
   declareProperty("SubjetContainerName", m_subjetcontainername);
   declareProperty("SubjetAlgorithm_BTAG", m_subjetalg);
   declareProperty("SubjetRadius_BTAG", m_subjetrad);
+  declareProperty("SubjetParentLink_BTAG", m_subjetParentLink);
 }
 
 std::vector<xAOD::Jet *> SubjetRecorderTool::recordSubjets(std::vector<fastjet::PseudoJet> subjets, xAOD::Jet &jet) const
@@ -69,9 +70,11 @@ std::vector<xAOD::Jet *> SubjetRecorderTool::recordSubjets(std::vector<fastjet::
     confiller.extractConstituents(*subj, &(*it));
 
     // Set association to parent
-    const xAOD::JetContainer *parent_container = dynamic_cast<const xAOD::JetContainer*>(jet.container());
-    ElementLink<xAOD::JetContainer> el_parent(*parent_container, jet.index());
-    subj->setAttribute("Parent", el_parent);
+    if(m_subjetParentLink){
+      const xAOD::JetContainer *parent_container = dynamic_cast<const xAOD::JetContainer*>(jet.container());
+      ElementLink<xAOD::JetContainer> el_parent(*parent_container, jet.index());
+      subj->setAttribute("Parent", el_parent);
+    }
 
     // additional information (partially) for b-tagging purpose
     xAOD::JetAlgorithmType::ID ialg = xAOD::JetAlgorithmType::algId(m_subjetalg);

@@ -1,4 +1,4 @@
-#Tue Aug 18 16:50:33 2015"""Automatically generated. DO NOT EDIT please"""
+#Mon Sep 14 21:26:39 2015"""Automatically generated. DO NOT EDIT please"""
 from GaudiKernel.GaudiHandles import *
 from GaudiKernel.Proxy.Configurable import *
 
@@ -546,6 +546,7 @@ class SubjetRecorderTool( ConfigurableAlgTool ) :
     'SubjetContainerName' : '', # str
     'SubjetAlgorithm_BTAG' : '', # str
     'SubjetRadius_BTAG' : 0.00000, # float
+    'SubjetParentLink_BTAG' : False, # bool
   }
   _propertyDocDct = { 
     'DetStore' : """ Handle to a StoreGateSvc/DetectorStore instance: it will be used to retrieve data during the course of the job """,

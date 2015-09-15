@@ -216,7 +216,7 @@ addDefaultTrimmedJets(jetm8Seq,"JETM8",exclusiveSubjetBuilderList=exclusiveSubje
 # lesson learnt: For jet that has never been b-tagged before, b-tagging algorithm will make a deep copy of it and overwrite with the original one with the deep copy before b-tagging
 # This means, any link from external object to the jets, built before b-tagging, will becomes invalid. Remember, during the deep copy overwriting, even the container address gets changed!
 # Thus, one way to get around is to make another deep copy of jet collection, store them in SG with another name, and run the b-tagging on this copy collection
-addCopyJets("NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", "AntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
+# addCopyJets("NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", "AntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
 #addCopyJets("NewAntiKt10PV0TrackJets", "AntiKt10PV0TrackJets", algseq=jetm8Seq, outputGroup="JETM8", mods=[], doShallow=False)
 
 
@@ -227,16 +227,13 @@ addCopyJets("NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets", "AntiKt10LCTopoTrimme
 # determine jet collection to be b-tagged
 JetCollectionToRetag = []
 JetCollectionToBtag  = []
+JetCollectionToPostBtag = []    # -- jet collection to apply special taggers
+
 # re-tagging, for VR purpose
 JetCollectionToRetag += [
                          "AntiKt4LCTopoJets",
                          "AntiKt4PV0TrackJets",
                         ]
-# parent fat-jet
-JetCollectionToBtag += [
-                         "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets",
-                         # "NewAntiKt10PV0TrackJets",
-                       ]
 # all exclusive subjets
 JetCollectionToBtag += [
                          "AntiKt10LCTopoTrimmedPtFrac5SmallR20ExKt2SubJets",
@@ -246,19 +243,29 @@ JetCollectionToBtag += [
                          "AntiKtVR40Rmax4Rmin0TrackJets",
                          "AntiKtVR40Rmax4Rmin2TrackJets",
                        ]
+# parent fat-jet, for post b-tag
+JetCollectionToPostBtag += [
+                            # "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20Jets",
+                            "AntiKt10LCTopoTrimmedPtFrac5SmallR20Jets",
+                            # "NewAntiKt10PV0TrackJets",
+                           ]
 
 print "Jet collection to be re-tagged:",JetCollectionToRetag
 print "Jet collections to be b-tagged:",JetCollectionToBtag
+print "Jet collection to be post-btagged:",JetCollectionToPostBtag
 
 # special jet name transformation (only for track-jets actually)
-JetCollectionToBtagList = [ (JetCollection, JetCollection.replace('ZTrack', 'Track').replace('PV0Track', 'Track')) for JetCollection in JetCollectionToBtag ]
+# This is for output stream purpose. Only those newly b-tagged jet collection can be included.
+# Re-tagged jet collection should NOT be included
+JetCollectionToBtagList = [ (JetCollection, JetCollection.replace('ZTrack', 'Track').replace('PV0Track', 'Track')) for JetCollection in JetCollectionToBtag+JetCollectionToPostBtag ]
 
 # from AthenaCommon.Constants import DEBUG
 # BTaggingFlags.OutputLevel = DEBUG
 
 # b-tagging calibration channel aliase
 BTaggingFlags.CalibrationChannelAliases += [
-                                             "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20->AntiKt10LCTopo,AntiKt6LCTopo,AntiKt6TopoEM,AntiKt4LCTopo,AntiKt4TopoEM,AntiKt4EMTopo",
+                                             # "NewAntiKt10LCTopoTrimmedPtFrac5SmallR20->AntiKt10LCTopo,AntiKt6LCTopo,AntiKt6TopoEM,AntiKt4LCTopo,AntiKt4TopoEM,AntiKt4EMTopo",
+                                             "AntiKt10LCTopoTrimmedPtFrac5SmallR20->AntiKt10LCTopo,AntiKt6LCTopo,AntiKt6TopoEM,AntiKt4LCTopo,AntiKt4TopoEM,AntiKt4EMTopo",
                                              #"NewAntiKt10Track->AntiKt10Track,AntiKt6Track,AntiKt4Track,AntiKt10TopoEM,AntiKt6TopoEM,AntiKt4TopoEM,AntiKt4EMTopo",
                                            ]
 BTaggingFlags.CalibrationChannelAliases += [
@@ -272,11 +279,18 @@ BTaggingFlags.CalibrationChannelAliases += [
 
 # specify tagger list:
 BtaggerList = ['IP2D', 'IP3D', 'SV0', 'MultiSVbb1', 'MultiSVbb2', 'SV1', 'JetFitterNN', 'MV2c00', 'MV2c10', 'MV2c20', 'MV2c100', 'MV2m']
+# special tagger list
+SpecialBtaggerList = ['ExKtbb']
 
 # initialize all b-tagging tool
+# normal b-tagging
 from DerivationFrameworkFlavourTag.FlavourTagCommon import FlavorTagInit
 FlavorTagInit(myTaggers      = BtaggerList,
               JetCollections = JetCollectionToRetag + JetCollectionToBtag,
+              Sequencer      = DerivationFrameworkJob)
+# special b-tagging for post b-tagging
+FlavorTagInit(myTaggers      = BtaggerList + SpecialBtaggerList,
+              JetCollections = JetCollectionToPostBtag,
               Sequencer      = DerivationFrameworkJob)
 
 

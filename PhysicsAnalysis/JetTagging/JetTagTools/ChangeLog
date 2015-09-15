@@ -1,0 +1,1450 @@
+2015-06-19 Emmanuel Le Guirriec
+	* m_ntrc not well sized
+	* tagged as JetTagTools-01-00-54
+
+2015-06-17 Emmanuel Le Guirriec
+	* initialize variable in TrackSelector.cxx
+	* tagged as JetTagTools-01-00-53
+
+2015-06-02 Kazuya Mochizuki
+	* add MVb variables in MV2Tag.cxx
+
+2015-05-28 Kazuya Mochizuki
+	* add switches to decorate the btagging object with MV2 inputs in MV2Tag.cxx
+	* JetTagTools-01-00-52
+
+2015-05-27 Kazuya Mochizuki
+	* code cleanup and trivial bug fixes
+	* JetTagTools-01-00-51
+
+2015-05-22 Giacinto Piacquadio
+	* degrade WARNING in JetFitterNNTool to DEBUG (as we know this will happen)
+        * JetTagTools-01-00-50
+
+2015-05-21 Kazuya Mochizuki
+	* fix to still consider MV2 for cases where JetFitter has not run,
+	  avoiding to connect variables which are not available
+	* JetTagTools-01-00-49
+
+2015-05-21 Giacinto Piacquadio
+	* bug fix in MV2Tag.cxx and JetFitterNNTool.cxx (ATLASRECTS-2100)
+	* when input data is missing, return default tagger values rather than go on with undefined inputs
+        * JetTagTools-01-00-48
+
+2015-05-12 Kazuya Mochizuki
+	* update MV2Tag.cxx/.h for a fix of TTree reading
+	  when the first event doesn't have any jet.
+	  Codes are imported from JetTagTools-01-00-42-branch
+
+2015-05-11 Luca Colasurdo
+	* bug fixes in JetVertexCharge code
+	* tag as JetTagTools-01-00-46
+
+2015-04-22 Luca Colasurdo
+	* initial import of the JetVertexCharge code
+	* tag as JetTagTools-01-00-45
+
+2015-03-31 Kazuya Mochizuki
+	* update MV2Tag.cxx/IPTag.cxx for trk pt/eta
+
+2015-03-30 Kazuya Mochizuki
+	* update MV2Tag.cxx: new BDT method using egammaMVACalib package
+	* THIS WILL BRING TEMPORAL DEPENDENCY TO BE CHANGED IN NEAR FUTURE
+	* tagged as JetTagTools-01-00-42
+
+2015-03-19 Kazuya Mochizuki
+	* update MV2Tag.cxx: automatic input variable reading from calib file
+
+2015-03-18 Kazuya Mochizuki
+	* update MV2Tag.cxx: MV2 fixes
+	* tagged as JetTagTools-01-00-41
+
+2015-03-14 Yann Coadou
+	* Added #BTAG# tag in MV2 warnings
+	* tagged as JetTagTools-01-00-40
+
+2015-03-10 Frank Filthaut
+	* protect against warning messages in case of known unusual but non-error cases
+	* tagged as JetTagTools-01-00-39
+
+2015-03-09 Yann Coadou
+   	* From Valerio: adding protection against running on crazy configuration
+	* tagged as JetTagTools-01-00-38
+
+2015-02-25 Manu Le Guirriec
+   	* fix memory leak in MVbTag.cxx
+	* no xml file writing in MVbTag.cxx
+	* tagged as JetTagTools-01-00-36
+
+
+2015-02-23 Valerio Dao
+	* implementing new version of rel20 grading
+	* tagged as JetTagTools-01-00-33
+
+2015-02-22 Frank Filthaut
+	* bug fix in SV0 usage in MV2 (the variable name is "significance3D" and not "discriminant")
+	* add WARNING messages in case of errors retrieving variables
+
+2015-02-17 Valerio Dao
+	* fixing bug in JetFitter usage for MV2
+	* tagged as JetTagTools-01-00-32
+
+2015-02-08 Frank Filthaut
+	* bug fixes in MVbTag.cxx and GaiaNNTool.cxx: when using variable(), don't include the tagger base name in the variable to be retrieved
+	* tagged as JetTagTools-01-00-31
+
+2015-01-16 Georges Aad
+	* fix bug in SVForIPTool
+	* tagged as JetTagTools-01-00-30
+
+2015-01-15 Frank Filthaut
+	* in IPTag, remove (unnecessary) retrieval of TrackParticle container (which causes issues with online code)
+	* tag as JetTagTools-01-00-29
+
+2015-01-13 Valerio Dao
+	* bug fix in MV2: JetFitter variables were not considered
+	* adding more options for MV2 tagger
+	* tag as JetTagTools-01-00-28
+
+2015-01-13 Valerio Dao
+	* switch to remove dependence on JetFitterCombNN in MV2
+	* tag as JetTagTools-01-00-27
+
+2014-12-01 Frank Filthaut
+	* fix bug in JetFitterTag.cxx
+	* tag as JetTagTools-01-00-23
+
+2014-12-01 Manu Le Guirriec
+   	* fix bug in trackWeight in IPTag (output parameters by reference)
+   	* initialize value in constructor of HistoLimits.h
+    	* protection against NULL dynamic_cast return value in NewLikelihoodTool
+    	* tag as JetTagTools-01-00-22
+
+2014-11-26 Frank Filthaut
+	* modify reference mode to extract flavour label from new xAOD::jetFlavourLabel() helper function in ParticleJetTools
+	  (this affects IPTag.cxx, SVTag.cxx, JetFitterTag.cxx)
+	* tagged as JetTagTools-01-00-21
+
+2014-11-16 Giacinto Piacquadio
+	* Fix JetFitterVariablesFactor to complain if diagonal element of covariance matrix is negative, and not use it
+	* Tagged as JetTagTools-01-00-20
+
+2014-10-22 Wouter van den Wollenberg <wouter.van.den.wollenberg@cern.ch>
+	* Modified MV-taggers to not retrieve configuration data from instance name, but from attribute.
+	* Tagged as JetTagTools-01-00-18
+
+2014-10-22  David Quarrie <David.Quarrie@cern.ch>
+	* cmt/requirements
+		 Specify the required ROOT components for cmake (transparent to CMT)
+	* Tagged as JetTagTools-01-00-17
+
+2014-07-11 Laurent Vacavant
+	* major bug fix in DetailedTrackGradeFactory: # b-layer hits was wrong
+	after xAOD migration
+	* tagged as JetTagTools-01-00-13
+
+2014-07-11 Laurent Vacavant
+	* use of proper calcLLR for JetFitterTag (call for IP3D)
+	* small clean-up IPTag, NewLikelihoodTool
+	* tagged as JetTagTools-01-00-12
+
+2014-05-21 Manu Le Guirriec
+    * mass in GeV
+    * tag as JetTagTools-01-00-09
+
+2014-05-21 Manu Le Guirriec
+    * WARNING -> DEBUG in SVTag
+    * TrackParticleLinks name used in IP3D
+    * tag as JetTagTools-01-00-08
+
+2014-05-07 Manu Le Guirriec
+    * Hack in Jet author name
+    * tag as JetTagTools-01-00-04
+
+2014-04-23 Aaron Armbruster
+	* SVForIPTool: Migrate to xAOD::Vertex
+	* SVTag: Migrate to xAOD::Vertex
+	* IPTag: Uncomment SVForIPTool usage
+	
+2014-03-25 Manu Le Guirriec
+    * IPTag: protection against empty TrackParticle container
+    * iIPTag: m_originalTPCollectionName initialized at InDetTrackParticles
+    * DummyTag: cout removed
+
+2014-02-27 Manu Le Guirriec
+    * cmt modification to compile only desired taggers
+    * JetTagTools_entries.cxx 
+    * jetTag(xAODJEt, xAODBTagging)
+
+2014-02-13 Aaron Armbruster
+    * start Fixed remaining xAOD::TrackParticle related compilation errors
+
+2014-02-11 Aaron Armbruster
+    * start Fixing compilation errors
+
+2014-01-30 Aaron Armbruster
+    * start port to xAODTracking
+
+2013-12-05 Robert Langenberg
+    * tagging JetTagTools-00-07-00
+    * Eigen migrated
+    * EDM migrated
+    * neutral perigee code commented out, put back in when vertex supports neutral perigee!!
+
+2013-11-20 Dominik Duda
+	* change MVb to BDT
+	* tag as JetTagTools-00-06-46
+
+2013-11-13 Sebastian Fleischmann, Dominik Duda
+        * add MVb tagger
+        * tag as JetTagTools-00-06-45
+
+2013-03-26  Sebastien Binet  <binet@cern.ch>
+
+	* tagging JetTagTools-00-06-44
+	* more CLHEP-2 migration
+	* remove instantiation of THistSvc from c-tor
+	* M cmt/requirements
+	* M src/components/JetTagTools_entries.cxx
+	* M src/LifetimeTag.cxx
+	* M src/JetFitterCharmVariablesFactory.cxx
+	* M src/SecVtxTag.cxx
+
+2012-11-26 Georges Aad
+	* tagging support for MV3Flip from Michael Ughetto
+	* tag as JetTagTools-00-06-43
+
+2012-11-25 Georges Aad
+	* tagging support for MV3 from Michael Ughetto
+	* tag as JetTagTools-00-06-42
+
+2012-11-08 Georges Aad
+	* merge JetTagTools-00-06-39-branch
+	* tag as JetTagTools-00-06-41
+
+2012-10-15 Walter Lampl
+	* CLHEP 2 migration
+	* tag as JetTagTools-00-06-40
+
+2012-06-19 Yoshikazu Nagai
+	* Fix accidentally removed const functions on HadFlavorTag.cxx/.h
+	* tag: JetTagTools-00-06-39
+
+2012-06-18 Yoshikazu Nagai
+	* add safety protection in trackassociation part.
+	* tag: JetTagTools-00-06-38
+
+2012-06-18 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+	* include string - needed due to change in new ROOT 5.34
+	* tag: JetTagTools-00-06-37
+	
+2012-05-30 Georges Aad
+	* fix FPE for gbb
+	* tag: JetTagTools-00-06-36
+
+2012-05-24 Georges Aad
+	* fix for QG tagger
+	* tagged as JetTagTools-00-06-35
+
+
+2012-05-24 Georges Aad
+	* fix for gbb newgbb taggers
+	* qg tagger not running properly - need fix
+	* not tagged
+
+2012-05-21 Yoshikazu Nagai
+	* Add Missing files for GbbNNTag.
+	* tagged as JetTagTools-00-06-34
+
+2012-05-15 Yoshikazu Nagai
+	* Update GbbNNTag.
+	* tagged as JetTagTools-00-06-33
+
+2012-05-14 Georges Aad
+	* protection for missing xml file (print warning)
+	* tagged as JetTagTools-00-06-32
+
+2012-04-26 Georges Aad
+	* handle xml DB file and reader for multiple instances using the same DB
+	* tagged as JetTagTools-00-06-31
+
+2012-04-24 Laurent Vacavant
+    * fix for MV1 tagger name in Flip version
+    * tagged as JetTagTools-00-06-30
+
+2012-04-23 Laurent Vacavant
+    * updated MV1 to be able to change the names of input weights (needed for negative tags)
+    * tagged as JetTagTools-00-06-28
+    * fixed in JetTagTools-00-06-29
+
+2012-03-21 Michael Ughetto
+    * fix jet aliasing for MV tagger
+    * tagged as JetTagTools-00-06-27
+	
+2012-02-22 Laurent Vacavant
+    * fixed excessive printout for MV1 if the TMVA reader is not found.
+    * tagged as JetTagTools-00-06-26
+
+2012-02-12 Yoshikazu Nagai
+    * Fix SharedHitMapper.cxx/SecVtxTag.cxx/NewLikelihoodTool.cxx/LikelihoodTool.cxx/LikelihoodMultiDTool.cxx/LifetimeTag.cxx/IPTag.cxx/BasicTrackGradeFactory.cxx to use ATH_MSG_* method.
+    * tagged as JetTagTools-00-06-25
+
+2012-02-12 Yoshikazu Nagai
+    * Fix DetailedTrackGradeFactory.cxx/.h to use ATH_MSG_* method.
+    * tagged as JetTagTools-00-06-24
+
+2012-01-29 Laurent Vacavant
+    * added MV1 tagger
+    * tagged as JetTagTools-00-06-23
+
+2012-01-27  Yoshikazu Nagai  <Yoshikazu.Nagai@cern.ch>
+    * tagging JetTagTools-00-06-22
+    * M src/DetailedTrackGradeFactory.cxx
+    * fixing output message std::cout --> ATHENA VERBOSE
+
+2012-01-04  Yoshikazu Nagai  <Yoshikazu.Nagai@cern.ch>
+    * tagging JetTagTools-00-06-21
+    * M JetTagTools/DetailedTrackGradeFactory.h
+    * M src/DetailedTrackGradeFactory.cxx
+    * Add m_useDetailSharedHitInfo method to implement new track categories (BlaShared/PixShared/SctShared)
+	
+2011-10-09  Sebastien Binet  <binet@voatlas51.cern.ch>
+	* tagging JetTagTools-00-06-20
+	* fixing bug 87581 (wrong include for ClassID_traits.h) + checkreq fixes
+	* M cmt/requirements
+	* M JetTagTools/SharedHitMapper.h
+
+2011-10-08 Georges Aad
+	* SoftMuonTag inherit from AthAlgTool
+	* change all msg to ATH_MSG_* macros
+	* tag: JetTagTools-00-06-19
+
+2011-07-21 Laurent Vacavant
+	* changed binning for IP2D/IP3D reference histograms
+	* tag: JetTagTools-00-06-18
+
+2011-06-18 Georges Aad
+	* fix memory leak in GbbNNTag
+	* tag: JetTagTools-00-06-17
+
+2011-05-31 Georges Aad
+	* fix for Muon::isLowPtReconstructedMuon deprecated function (obo Henri Bachacou)
+	* tag: JetTagTools-00-06-16
+
+2011-05-31 Georges Aad
+	* add GbbNNTag (obo Maria Laura Gonzalez Silva)
+	* tag: JetTagTools-00-06-15
+
+2011-05-26 Georges Aad
+	* extra info in MultiSVTag
+	* tag: JetTagTools-00-06-14
+
+2011-04-15 Georges Aad
+	* add MultiSVTag
+	* tag: JetTagTools-00-06-13
+
+2011-03-24 Laurent Vacavant
+	* modifications in TrackSelector to deal with pile-up: new cuts activated by flag useAntiPileUpCuts (default:false)
+	* if true, enable d0%z0 cut (values set by antiPileUpSigD0Cut and antiPileUpSigZ0Cut, default: 3 and 3.8)
+	* enables also tighter cut on NHitSi (default: 9) and cut on NPixelHoles (1)
+	* tagged as JetTagTools-00-06-12
+
+2011-03-14 Georges Aad
+	* protect DEBUG and VERBOSE MSG
+	* tag: JetTagTools-00-06-11
+
+2011-02-25 Georges Aad
+	* CPU optimization in JetProb and TrackSelector
+	* tag: JetTagTools-00-06-10
+
+2010-12-12 Laurent Vacavant
+	* modified DeltaR(jet,PV-SV) to change jet direction for flipped tags
+	* tagged as JetTagTools-00-06-08
+	* same modification in cleaner way: JetTagTools-00-06-09
+
+2010-12-03 Laurent Vacavant
+	* changed default for use2DSignForIP3D to false
+	* changed name of use2DSignForZ: useD0SignForZ0
+	* tagged as JetTagTools-00-06-07
+
+2010-12-03 Laurent Vacavant
+	* name of InfoBase for IPTag and SVTag now dynamically created from tagger instance name
+	* added flag in IPTag and SVTag to write or not (e.g. for flipped taggers) InfoPlus: writeInfoPlus
+	* added flag in IPTag to sign d0 with 2D sign even for IP3D: use2DSignForIP3D (default=true)
+	* added flag in IPTag to sign z0 with d0 2D sign: use2DSignForZ (default=false)
+	* added flag in IPTag to flip Z impact parameter sign: flipZIPSign (default=false)
+	* added flag in IPTag to reject tracks based on the Z impact parameter sign as well (in conjunction with usePosIP and useNegIP flags): useZIPSignForPosNeg (default=false)
+	* removed flipDLSSign flag from SVTag: now handled via InDetVKalVxNegativeTagInJet
+	* tagged as JetTagTools-00-06-05
+
+2010-12-02 Georges Aad
+	* add SecondSoftMuon tagger
+	* tagged as JetTagTools-00-06-04
+	
+2010-12-01 Giacinto Piacquadio
+	* Modified JetFitterVariablesFactory to to get negative mistags from data if requested
+	  (added appropriate flag)
+	* tagged as JetTagTools-00-06-03
+	
+2010-12-01 Laurent Vacavant
+	* added flags in IPTag: 
+		- usePosIP and useNegIP to use only tracks with positive/negative IP
+		- writeInfoPlus to control the output of InfoPlus objects
+		- useAlways2DSign to force using 2D sign for IP even for IP3D
+	* adjusted code for these flags
+	* tagged as JetTagTools-00-06-02
+
+
+2010-10-28 Giacinto Piacquadio
+	* fix likelihood combiner and JetFitterLikelihood to be able to deal with NO CALIBRATIOn without crashing
+	* tagged as JetTagTools-00-06-01
+
+2010-10-25 Georges Aad
+	* expect hit on blayer from track summary
+	* tagged as JetTagTools-00-06-00
+
+2010-09-28 Nicolas Bousson
+	* modified JetProb: back to canonical normalization of P_trk (gains ~ 40%)
+	* tagged as JetTagTools-00-05-87
+
+2010-09-07 Georges Aad
+	* remove hardcoded jet collection used to get the TF1 from the db
+	* tagged as JetTagTools-00-05-86
+
+2010-09-01 Georges Aad
+	* print warning only one time when fit function not found for jet prob
+	* tagged as JetTagTools-00-05-85
+
+2010-08-26 Georges Aad
+	* add protection in case the fit function is not found in JetProb
+	* needed to prevent crache with old db schema
+	* tagged as JetTagTools-00-05-84
+
+2010-08-14 Jean-Baptiste de Vivie
+	* fix bug 71636
+	* tagged as JetTagTools-00-05-83
+
+2010-08-19 Cecile Lapoire
+	* modified JetProb so that it retrieves the fit of the resolution function from the D. The fit used is extracted from data when running on data and from MC when running on MC
+	* requires this b-tagging calibration tag : BTagCalibALL-04-03
+	* tagged as JetTagTools-00-05-82	
+
+2010-04-29 Cecile Lapoire
+	* changed JetProb resolution function : still using fit but with different expression and parameters (based on data at 7 TeV now)
+	* tagged as JetTagTools-00-05-80	
+
+2010-04-02 Laurent Vacavant
+	* minor fix: added StatusCode check in SoftElectronTag::initialize() , was crashing in reference mode
+	* tagged as JetTagTools-00-05-79
+
+2010-03-30 Cecile Lapoire
+        * modified JetProbTag.cxx : track probability set to 1e-10 when computed to 0 to prevent crash when computing Log(Track Probability)
+        * tagged as JetTagTools-00-05-78
+	
+2010-03-10 Cecile Lapoire
+	* modified JetProbTag.cxx : computes JetProb weight using fit instead of histogram now by default
+	* corrected normalization of the reference histogram issue when using only tracks with negative or positive d0
+	* tagged as JetTagTools-00-05-77
+	
+2010-02-08 Giacinto Piacquadio
+	* removed the old jobOptions for the calibration files for JetFitter
+	* solved bug (old code looking for 'Kt' or 'Cone' in the jetAuthor string)
+	* tagged as JetTagTools-00-05-76
+	
+2009-01-31 Laurent Vacavant
+	* minor fixes for gcc43 warnings
+	* tagged as JetTagTools-00-05-75
+
+2010-01-08 Sara Strandberg
+	* changed Changed tagweight definition for SV0 by updating get3DSignificance()
+	* tagged as JetTagTools-00-05-74
+
+2009-12-12 Laurent Vacavant
+	* changed IPTag and JetProb taggers to use unbiased impact parameters
+	* tagged as JetTagTools-00-05-73
+
+2009-11-06 Cecile Lapoire
+	* added flag in JetProbTag.cxx so that calibrationTool is not retrieved in reference mode 
+	* changed binning in SoftElectronTag.cxx for ptrel and d0 histograms
+	* tagged as JetTagTools-00-05-71
+
+2009-11-03 Jean-Baptiste de Vivie
+	* bug fix when using SVX direction for signing
+	* tagged as JetTagTools-00-05-70
+
+2009-11-03 Cecile Lapoire
+	* modified JetProbTag.cxx to use bins with variable size for reference histogram
+	* added function fillHistoWithWeight in HistoHelperRoot.cxx needed for JetProb reference histogram filling
+	* tagged as JetTagTools-00-05-69
+
+2009-10-26 Cecile Lapoire
+	* restricted track weight computing to Analysis mode in JetProbTag.cxx
+	* tagged as JetTagTools-00-05-68
+
+2009-10-14 Jean-Baptiste de Vivie
+	* protect JetFitter against 0 ip3d proba
+	* tagged as JetTagTools-00-05-67
+
+2009-09-22 Laurent Vacavant
+	* fix in SVForIPTool
+	* tagged as JetTagTools-00-05-66
+
+2009-08-20 Laurent Vacavant
+	* protection for FPE in TrackSelector if # of d.o.f is zero
+	* fixes bug #54618
+	* tagges as JetTagTools-00-05-65
+
+2009-07-21 Giacinto Piacquadio
+	* fixes for new TrackToVertexIPEstimator tool (use interface), add default to SoftElectronTag, change from z0 to zoSinTheta in IPTag
+	* tagged as JetTagTools-00-05-64
+	
+2009-07-21 Giacinto Piacquadio
+	* remove TTrainedNetwork and JetFitterNetworkToHisto tool and move to TrkNeuralNetworkPackage
+	* change JetFitterNNTool accordingly
+	* change limit in JetFitterNNTool from -4000 to a very small number for IP3D weight
+	* tagged as JetTagTools-00-05-63
+	
+2009-07-08 Cecile Lapoire
+	* fixed bug in SoftElectronTag.cxx : m_d0wrtPvx instead of m_d0ErrwrtPvx was set to sigmad0
+	* tagged as JetTagTools-00-05-62
+	
+2009-06-18 Laurent Vacavant
+	* started uniformization of print-outs (start with #BTAG#) 
+	* tagged as JetTagTools-00-05-61
+
+2009-06-09 Cecile Lapoire
+	        * re-added deleted lines in IPTag.cxx setting z0 and z0Err
+	        * tagged as JetTagTools-00-05-60
+
+2009-05-14 Giacinto Piacquadio
+	* fix in JetFitterNNTool: degraded ERROR TO WARNING not to stop production
+	* the underlying problem still needs investigations
+	* tagged as JetTagTools-00-05-59
+
+2009-05-09 Cecile Lapoire
+	* fixed JetProbTag, IPTag and SoftElectronTag
+	* tagged as JetTagTools-00-05-57
+
+2009-05-06 Cecile Lapoire
+	* fixed JetProbTag 
+	* tagged as JetTagTools-00-05-56
+
+2009-02-16 Laurent Vacavant
+	* isolated use of inDetTestBLayerTool in TrackSelector (if not available)
+	* set useBLayerHitPrediction to false temporarily
+	* tagged as JetTagTools-00-05-55
+
+2009-02-11 Laurent Vacavant
+	* minor fixes for gcc43
+	* tagged as JetTagTools-00-05-54
+
+2009-02-05 Lorenzo Feligioni
+	* added interface to conddb through InDetTestBLayerTool - used in the track selection
+	* tagged as JetTagTools-00-05-53
+
+2009-02-04 Laurent Vacavant
+	* restored temporarily JetFitter calibration text files
+	* activated 4th LR variable in SVTag: deltaR between jet axis and PV-SV direction
+	* tagged as JetTagTools-00-05-52
+
+2009-01-18 Laurent Vacavant
+	* tagged as JetTagTools-00-05-51
+
+2009-01-15 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* continue fixing classes for AthenaBaseComps (task #8629): SET
+
+2009-01-14 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+	* continue fixing classes for AthenaBaseComps (task #8629): SVTag, EmulTag, JetProb, SVForIPTool, CombinerTool, CombinerToolTag
+
+2009-01-13 Thomas Goepfert
+	* fix TrackCounting class for AthenaBaseComps (task #8629)
+
+2009-01-02 Laurent Vacavant
+	* started fixing classes for AthenaBaseComps (task #8629): IPTag, TrackSelector, NewLikelihood
+	* removed treatment of impact parameters defined at perigee in IPTag
+
+2008-18-12 Andreas Wildauer
+        * fix package compilation failure in mig6 due to code
+          clean up in lower level EDM packages
+        * tagged as JetTagTools-00-05-50
+
+2008-11-30 Laurent Vacavant
+	* fix requirement file for checkreq warnings
+	* tagged as JetTagTools-00-05-49
+
+2008-11-30 Giacinto Piacquadio
+	* small further fix
+	* tagged as: JetTagtools-00-05-48
+
+2008-11-30 Giacinto Piacquadio
+	* changes to read coefficients for JetFitter likelihood from COOL DB
+	* one level protection against reading in wrong text file
+	  (if still using old DB)
+	* tagged as: JetTagtools-00-05-47
+
+2008-11-3 Zaidan
+	* crash fix in JetProb: added protection if TracToVertexIPEstimator failed
+	* check in JetProb if ToolHandles are valid before using them
+	* tagged as: JetTagTools-00-05-46
+	
+2008-11-3 Zaidan
+	* fixed bug in JetProb
+	* tagged as JetTagTools-00-05-45
+
+2008-10-27 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* src/SoftElectronTag.cxx (.h) : use of TrackToVertexIPEstimator + 
+	  select best electron based on electron-weight*pTrel*d0 in one step
+	* tagged as JetTagTools-00-05-43
+
+2008-10-15 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* cmt/requirements: adapt for Reconstruction/egamma
+	* tagged as JetTagTools-00-05-41
+
+2008-10-13
+	* bug fix in JetProbTag
+	* tagged as JetTagTools-00-05-40
+
+2008-10-07
+	* bug fix in JetProbTag
+	* changed JetProb to rely on the new TrackToVertexIPEstimator tool in Tracking
+	* changed JetProb so that one can choose to use histograms or fit function as calibration
+	* tagged as JetTagTools-00-05-39
+
+2008-08-28 Thomas Goepfert
+	* TrackCounting tagger now uses TrackToVertexIPEstimator in tool Tracking
+	* tagged as JetTagTools-00-05-38
+
+2008-09-16 Laurent Vacavant
+	* check if pointer to TracToVertexIPEstimator is non-null in IPTag
+	* separate calibration output files in reference mode
+	* fixed reference mode for soft lepton taggers
+	* tagged as JetTagTools-00-05-36
+	* removed cout in SoftMuTag
+	* tagged as JetTagTools-00-05-37
+
+2008-09-15 Laurent Vacavant
+	* TrackSelector is now using PixDeadSensors (except b-layer) and SCTDeadSensors 
+	* fixed checkreq warnings
+	* now check initialization of TrackToVertexIPEstimator in IPTag.cxx
+	* tagged as JetTagTools-00-05-35
+
+2008-09-12 Giacinto Piacquadio
+	* changed Taggers to use VxCandidate instead of RecVertex
+	* changed IP3D to rely on the new TrackToVertexIPEstimator tool in Tracking
+	* a bug in the calculation of the 3d sign is also fixed
+	* tagged as JetTagTools-00-05-33
+
+	* small fix to IP3DTag
+	* tagged as JetTagTools-00-05-34
+	
+2008-08-28 Thomas Goepfert
+	* added TrackCounting tagger
+	* tagged as JetTagTools-00-05-30
+	
+2008-05-31 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+  
+	* Fix a Floating Point Exception in SoftElectronTag
+	* tagged as JetTagTools-00-05-29
+
+2008-07-30  David Quarrie <David.Quarrie@cern.ch>
+
+	* src/GradedTrack.cxx: Add #include <sys/types.h> for MacOSX compatibility
+	* tagged as JetTagTools-00-05-28
+
+2008-07-24 Laurent Vacavant
+	* same fix as below for JetProb
+	* tagged as JetTagTools-00-05-27
+
+2008-07-21 Laurent Vacavant
+	* fix in IPTag to know which tracks are FromV0 even if rejectBadTracks is false
+	* tagged as JetTagTools-00-05-26
+
+2008-06-29 Giacinto Piacquadio
+	* important fix to the calibration files for the JetFitter likelihood
+	  (coefficients which are not yet in the DataBase)
+	* fixes also bug #37772 (floating point exception)
+	* tagged as JetTagTools-00-05-25
+	
+2008-06-24 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* Modify SoftElectronTag to have better d0 calculation + 
+	  error->warning message
+	* tagged as JetTagTools-00-05-23
+
+2008-06-19 Laurent Vacavant
+	* fixed reference mode for SVTag (m_likelihoodTool outside scope)
+	* tagged as JetTagTools-00-05-22
+
+2008-05-27 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+  
+	* Fix some Floating Point Exceptions noticed by S. Snyder 
+	* tagged as JetTagTools-00-05-18
+
+2008-05-27 Giacinto Piacquadio
+	* fix JetFitterTag in case only the basic InfoObject is written out
+	* tagged as JetTagTools-00-05-16
+
+2008-05-27 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+  
+	* Modify SoftElectronTag so that in can also look at Photon (softE misidentified as conversion)
+	* tagged as JetTagTools-00-05-15
+
+2008-05-24 Laurent Vacavant
+	* fixed JetProbTag to fill right info (Base & Plus) when running in negative tag mode
+	* tagged as JetTagTools-00-05-14
+
+2008-05-20 Laurent Vacavant
+	* fixed a few printout levels
+	* tagged as JetTagTools-00-05-12
+
+2008-05-20 Marc Lehmacher & Giacinto Piacquadio
+	* bug corrected in BasicTrackGradeFactory
+	* new DetailedTrackFactory in
+
+2008-05-19 Marc Lehmacher & Giacinto Piacquadio
+	* addition of interfaces / tools for multiple track categories choices
+	* modified IPTag, TrackSelector, JetProb, GradedTrack
+	* addition of ITrackGradeFactory and BasicTrackGradeFactory
+	* DetailedTrackGradeFactory still missing
+	* still to be tested
+	* not tagged yet
+	
+2008-05-18 Remi Zaidan
+	* update of SVTag: added new variable for SV1 (DeltaR between Jet axis and PV-SV direction)
+	* added a flag 'UseDRJetPvSv' to switch ON/OFF the use of the new variable (default OFF)
+	* tagged as JetTagTools-00-05-08
+
+2008-05-16 Remi Zaidan
+	* added UsePosIP and UseNegIP flags to control choice of IP sign
+	* added flipIP flag to flip IP sign for negative tags
+	* removed all unused information about z impact parameter
+	* fixed crash occuring when a calibration histogram is not found in COOL DB
+	* tagged as JetTagTools-00-05-07
+
+2008-05-15 Remi Zaidan
+	* modified JetProb to use calibrations from COOL instead of resolution function
+	* now JetProb can use the track categories defined by jobO
+	* tagged as JetTagTools-00-05-06
+
+2008-05-15 Frederic Derue (derue@lpnhe.in2p3.fr)
+        * *.h : add comments for documentation
+	* src/SoftElectronTag.cxx : few minor changes  
+	* tagged as JetTagTools-00-05-05
+
+2008-05-13 Laurent Vacavant
+	* changed reference type for IPTag and SVTag to "ALL" (was "B")
+	* a bit of uniformization for property names of IPTag and SVTag
+	* modified SVTag for SV0
+	* tagged as JetTagTools-00-05-04
+
+2008-04-29 Laurent Vacavant
+	* reserved space for vectors in IPTag (to fix 'bug' report #36100)
+	* tagged as JetTagTools-00-05-03
+
+2008-04-10 Frederic Derue
+	* src/SoftElectronTag.cxx :  track quality cuts + m_Db m_Du normalized
+
+2008-03-30 Jean-Baptiste de Vivie
+        * Adapt to new Jet EDM
+
+2008-03-19 Giacinto Piacquadio
+	* fix old TrackSelector (no crash in 
+	  case of failure of extrapolation, just WARNING)
+
+2008-03-19 Giacinto Piacquadio
+	* restructure JetFitterLikelihood in order 
+	to delete all objects in the finalize()
+	* calibration can now change during run
+	* tagged as JetTagTools-00-04-43
+
+2008-03-19 Laurent Vacavant
+	* clean up to empty vectors in NewLikelihood
+	* tagged as JetTagTools-00-04-42
+
+2008-03-18 Laurent Vacavant
+	* fix verbosity in SoftMu
+	* tagged as JetTagTools-00-04-41
+
+2008-03-13 Giacinto Piacquadio
+	* fix delete / delete[] mismatch
+
+2008-03-11 Giacinto Piacquadio
+	* fix speed of JetFitterLikelihood (now a factor x10 faster)
+
+2008-02-24 Giacinto Piacquadio
+	* tool SVForIPInfo
+	* completed migration to InDetVKalVxInJetTool
+	* new JetFitter calibration text files for rel 13 (only Cone4H1Tower)
+	* JetFitter likelihood histograms + Neural Network histograms migrated to COOL
+
+2008-02-22 Giacinto Piacquadio
+	* SVTag: updated to use InDetVKalVxInJetTool and
+	  3d significance calculation
+	  To do: decide if to add again number of tracks in jet 
+	* IPTag: updated to use InDetVKalVxInJetTool
+	* IPTag: added possibility to use info from JetFitter vs 2
+	  (not tested yet)
+	* fix JetFitter calibration file for root v 5.14
+	
+2008-02-21 Giacinto Piacquadio
+	* updated Tagger for JetFitter vs 2
+	* new Tagger with NN
+
+2008-02-19 Andreas Wildauer
+	* get FitQuality from TrkEventPrimitives
+
+2008-02-06 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* SoftElectronTag.cxx (.h) : migration to COOL
+
+2008-01-07 Andreas Wildauer
+	* adjusted to changes in Reco/Particle
+	  truth is now in Reco/ParticleTruth
+	* tagged as JetTagTools-00-04-33
+
+2007-12-17 David Quarrie  <David.Quarrie@cern.ch>
+
+	* cmt/requirements: Extend ROOT linkopts to include RooFit.
+        * src/LikelihoodMultiDTool.cxx: Add include <cmath> for LCG_54 compatibility
+	* src/LikelihoodTool.cxx: Ditto
+	* src/NewLikelihoodTool.cxx: Ditto
+	* tagged as JetTagTools-00-04-32
+ 
+2007-12-14 Laurent Vacavant
+
+  * changes for calibrations from COOL:
+  * imported new tool: NewLikelihoodTool
+  * update IPTag, SVTag
+  * minor updates to GradedTrack and HistoHelperRoot
+  * tagged as JetTagTools-00-04-31
+
+2007-12-09 Giacinto Piacquadio
+	* general interface for secondary vertex finding
+	* VKalVrt still needs to be adapted to it
+	
+2007-11-28 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+        * Add a tool for random b-tagging (plus corresponding root files)
+        * Add calibrations from r1206 T1 and ttjj events
+        * Fix from S. Snyder (protection in SVTag)
+
+2007-10-19 Giacinto Piacquadio 
+	* migrate JetFitter to the use of TrackParticleBase instead of TrackParticle
+
+2007-10-18 Giacinto Piacquadio <piacquadio AT physik.uni-freiburg.de>
+	* Fix memory leak in JetFitterLikelihood
+
+2007-08-28 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+	* Fix in SoftElectronTag (wrong selection for SoftE)
+	* Create a SoftElectrononInfo only if there is at least one selected electron in jet
+	* Fix for checkreq (?)
+	
+2007-08-09 Andreas Wildauer
+	* adjust SecVtxTag to new vertex fitter interfaces (ParametersBase instead of TrackParameters)
+
+2007-07-09 Scott S. Snyder <snyder@bnl.gov>
+
+	* Fix memomry leaks (~IPTag, JetProbTag::finalise)
+	* Compilation warnings (TrackSelector, requirements)
+
+2007-07-05 Andreas Wildauer
+ * bugfix in SecVtxTag concerning use of vertex fitter
+
+2007-06-25 Giacinto Piacquadio <piacquadio AT physik.uni-freiburg.de>
+ * bug fix: collection name in JetFitter calibration file didn't follow 
+   correctly the general change in the jet collection names
+	
+2007-06-05 Andreas Wildauer
+  * adjustments to changes in TrackParticleTruth (for T/P split)
+
+2007-05-25 Henri Bachacou henri.bachacou@cern.ch
+  * Soft Muon Tagging: 1D histos are not smoothed on-the-fly anymore.
+   -> updated reference files, turned off smoothing for 1D soft mu histos
+	
+2007-05-20 Giacinto Piacquadio <piacquadio AT physik.uni-freiburg.de>
+  * bugfix in JetFitter: fix rare crash on high-pT jets
+ 	
+2007-05-15 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * follow changes in jet collection names (Again !)
+  * write InfoPlus only on request (by default on Cone4H1Tower and Cone4Truth)
+
+2007-04-28 Giacinto Piacquadio <piacquadio AT physik.uni-freiburg.de>
+  * added the new JetFitter based BTagging algorithm:
+	1) JetFitterTag (b-tagging tool)
+	2) JetFitterNtupleWriter (writes ntuple for making ref histos)
+	3) JetFitterLikelihood (loads and keeps likelihood)
+	4) JetFitterVariablesFactory (takes the vertexing object 
+	   and calculates the quantities for B-Tagging)
+  * added CombinerToolTag, a new ITagTool which combines more likelihoods
+	(just uses the existing CombinerTool and puts the output into 
+	a BaseTagInfo object)
+  * changed TrackSelector (default options as before), added:
+	1) chi2/ndf cut for tracks (as in vertexing code)
+	2) max sigd0
+	2) max sigz0
+  * added first preliminary reference histos+coefficients [WH(120)/Cone4/csc11]
+	
+2007-04-11 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * follow changes in jet collection names
+
+2007-03-23 Henri Bachacou henri.bachacou@cern.ch
+
+  * LikelihoodMultiDTool and HistoHelperRoot:
+	Moved 1D interpolation to HistoHelperRoot,
+	where it belongs.
+
+2007-03-23 Henri Bachacou henri.bachacou@cern.ch
+
+  * LikelihoodMultiDTool: Option to interpolate 1D histograms
+	and adapt smoothing to number of entries in histogram.
+  * SoftMuonTag: separate likelihoods for STACO (Combined)
+	and MuTag (LowPt); add new algorithm, L1DL1D, simple
+	product of pT and pTrel likelihoods.
+  * Update SoftMuonTag p.d.f's accordingly (mix of WH and ttbar)
+
+2007-03-08 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * use the common BtagTrackToVertex also in the TrackSelectors
+
+2007-02-14 Henri Bachacou henri.bachacou@cern.ch
+
+  * remove excessive INFO message in SoftMuonTag.
+
+2007-02-01 Andreas Wildauer
+
+  * bug fix, forgot to remove includes to ILikelihoodTool in some taggers
+
+2007-01-30 Andreas Wildauer
+
+  * adjusted SecVtxTag to use its tools as toolhandles/configurables
+  * LikelihoodTool does not inherit from ILikelihoodTool anymore.
+    It was a useless inheritance causing "inconveniences" in ToolHandle (ILikelihoodTool does not provide any interfaces ...)
+  * in addition, I removed ILikelihood from the package (it is not needed anymore) 
+
+2007-01-26 Andreas Wildauer
+
+  * adjusted IPTag to use its tools as toolhandles/configurables
+  * LikelihoodMultiDTool does not inherit from ILikelihoodTool anymore.
+    It was a useless inheritance causing "inconveniences" in ToolHandle (ILikelihoodTool does not provide any interfaces ...)
+
+2007-01-09 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * SoftMuonTag modif. for ESD/AOD muon merge
+
+2007-01-09 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * SoftElectronTag modif. for ESD/AOD egamma merge
+
+2006-12-22 Andreas Wildauer
+
+  * adjusted SecVtxTag to changes in vertex EDM
+
+2006-12-14 Andreas Wildauer
+  
+  * adjusted SecVtxTag.cxx main branch to changes in vertexing (MeasPer -> TrackParameters)
+  * last tag to work with 12.0.4 branch is JetTagTools-00-03-44
+
+2006-12-07 Henri Bachacou <henri.bachacou@cern.ch>
+
+  * Remove use of muon extrapolated track
+
+2006-12-01 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Add units (GeV, mm).
+	
+2006-11-23 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Protection in case the extrap. to the PVX failed
+    (take the d0 at perigee instead) 
+	
+2006-11-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Symmetrize SoftEl vs SoftMu w.r.t. calibration file treatment 
+		
+2006-10-11 Henri Bachacou <henri.bachacou@cern.ch>
+
+  * Add options in LikelihoodMultiD for SoftMu
+  * Clean up SoftMuonTag
+
+2006-10-11 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Improvements for SoftElectronTag
+
+2006-02-11 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Fixes
+
+2006-30-10 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * For Henri, SoftMuonTag improvments
+	
+2006-20-10 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * huge-bug fix in SVTag (thanks Henri !) affecting 
+    all b-tag results from SV with Cone7 or Kt jets.
+
+2006-09-22 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fixes in IPTag and JetProb
+
+2006-09-13 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * use makeValid for IPTag (and SVTag) to be able to use them 
+    instead of lifetime in lhSig
+  * cleaning (remove oldInfo stuff)
+	
+2006-09-08 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * For Anna : electrons have to be identified by the SoftE algo.
+
+2006-09-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Add IP1D (to keep at the end only one IP tool)
+  * new calib. files (with SipZ0)
+	
+2006-08-25 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * SecVtxTag.cxx : put Andreas mod. for the new VxVertex
+	
+2006-07-27 Laurent Vacavant
+
+  * removed VertexTag
+  * cleanup (removed some cout)
+
+2006-07-27 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * SoftMuonTag : can do SoftMuonTag at AOD level
+
+2006-07-26 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * SVTag : add a vector of SVTrackInfo in SVInfoPlus 
+
+2006-07-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * JetEvent moved to Reco/Jet
+
+2006-06-26 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * SoftMuon : pT(mu) w.r.t. jet+mu
+
+2006-05-17 Laurent Vacavant
+
+ * bug fix for Andreas in LikelihoodTool: return value if no vertex
+
+2006-05-17 Laurent Vacavant
+
+  * bug fix in IPTag.cxx: put significances in IPInfoPlus instead of errors
+
+2006-05-11 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * gcc344 fixes + SoftE (new names for Weight)
+
+2006-05-05 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix in the histogram preparation (analysis mode)
+
+2006-05-05 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix in IPTag ref. mode
+
+2006-04-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * update for the new SvxSummary
+
+2006-04-11 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * cleaning and fixes
+
+2006-04-07 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * minor fixes
+
+2006-04-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bring back SoftEl and SoftMu. Still not tested at runtime !!!
+
+2006-03-28 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted SoftLepton taggers to new location of Electron/Muon
+
+2006-03-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed "jet cleaning cut bug" in LifetimeTag and SecVtxTag
+    (thanks to Laurent for spotting it :-))
+
+2006-03-15 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * updated for reference mode with 3 jet collections
+  * HistoHelper related fixes for Andreas' taggers
+  * other bug fixes
+
+2006-03-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * removed AIDA support which was still there as a remnant
+  * updated cern taggers to support reference mode again
+
+2006-03-14 Laurent Vacavant
+
+  * fixes in IPTag, SVTag, JetProbTag
+
+2006-03-13 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * even uglier smoothASH3D, working with odd machines
+  * fix fore GradedTrack
+
+2006-03-13 Laurent Vacavant
+
+  * fix taggers for new ParticleJet
+  * use also new infos
+  * new calibration files
+
+2006-03-08 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * first version which works with new ParticleJet
+  * last tag to work with 11.3.0 or earlier is: JetTagTools-00-02-11
+
+  * only LifetimeTag adjusted so far - others will follow
+
+2006-02-28 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * property+code to use SharedHit information from TrackSummary
+
+2006-01-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted SecVtxTag to use VKal tool
+  * adjusted LikelihoodTool to calculate proper weight/likelihood for secvtx
+
+2006-01-10 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix (GradedTrack, LikelihoodMultiDTool (for Clone))
+  * in ref. mode, book all histograms (whatever the flavor to calibrate)
+  * change in outputlevel
+
+2006-01-02 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed an unchecked status code in LikelihoodTool.cxx
+
+2005-12-15 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * fix for reference mode for SV taggers
+
+2005-12-03 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * added protection for CumulativeChiSquare in SecVtxTag, VertexTag, TrackSelector
+
+2005-11-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed a bug in SecVtxTag (crash in case no vertex was returned by the fit tool)
+
+2005-11-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+ 
+  * Anna/Marcin SoftElectron 
+
+2005-11-17 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * applied patch for compiling with gcc 3.4.4
+
+2005-11-16 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated ref histos for life time taggers
+
+2005-11-16 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix in SharedHitMapper
+  * very first SoftElectronTag (and a MuonTag that is doing nothing)
+
+2005-11-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed SecVtxTags to use new TrkVertexFitterInterface location
+  * changed SecVtxTags jobOs to use Configured python classes to
+    setup the billoir fast fitter
+
+2005-11-09 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * In ref. mode, book the histos for the SV efficiencies
+    also for SV2
+  * Duplicate N2TNorm and N2TEff
+    (to get rid of some THistSvc error when trying
+     to register two times the same histos.)
+
+2005-11-08 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Add JetProbTag
+  * New way of doing for SV
+  * Flag to reject bad tracks
+  * new calib (10.5.0, xKal, bad track rejected, from 4854/5/6)
+
+2005-10-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * write smoothed Histograms only if explicitely required
+
+2005-10-09 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * fix bug in LikelihoodMultiD (when summing grades)
+
+2005-09-26 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix in SV2
+  * allows for bin interpolation in likelihood estimation
+
+2005-09-22 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * yet another bugfix to CombinerTool
+
+2005-09-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bug ifx in CombinerTool.cxx
+    Thanks to Jean Baptiste for spotting it :-)
+
+2005-09-07 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * comment the smoothed Histogram writing for the time being
+
+2005-09-06 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fixes
+  * use two track classes (SharedHitMapper in JetTagTools, temporary)
+
+2005-08-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to changes in VxVertex
+  * adjusted to shifts in THistSvc
+  * tagged JetTagTools-00-01-00
+  * DOES NOT WORK WITH 10.0.2
+
+2005-08-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * various changes and bugfixes to CombinerTool, LHTool,
+    LifetimeTag, SecVtxTag.
+  * removed HistoHelper, changed to THistSvc
+  * removed SoftLeptonTag (can be added later again)
+  * tagged version JetTagTools-00-00-33
+  * LAST ONE TO WORK WITH 10.0.2 ... you need to copy THistSvs as well
+
+2005-08-12 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed compilation error in SVTag.cxx for 10.4.0 build
+
+2005-08-10 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fixes
+
+2005-08-08 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * changed ITagTool interface: void tagJet(..) instead of StatusCode tagJet(..)
+  * adjusted all taggers for change above
+  * imported HistoHelperRoot to manage histograms with THistSvc
+  * imported GradedTrack to deal with track categories
+  * changed LikelihoodMultiDTool, IPTag, SVTag for changes above
+
+2005-05-27 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * quick fix release for rome to add weights and
+    to be able to run on displaced vertices
+    tagging: JetTagTools-00-00-21
+
+2005-05-02 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * adjusted to changes in TrackParticle (d0wrtPrimVtx
+  no longer available)
+  * means that TrackSelector is working on d0(perigee)
+  and z0(perigee)-zVertex now
+
+2005-04-28 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to changes in TrackPArticle interface
+  * tagged JetTagTools-00-00-20
+  * NOTICE: tag
+    JetTagTools-00-00-19
+    is the LAST ONE which works with 10.0.x branch!
+
+2005-04-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted SecVtx tag tool to run on AOD as well
+
+2005-04-06 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Updated ref. histos again
+
+2005-04-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated ref histos
+
+2005-03-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * copied all ref histos using ROOT 4/03 to get rid of
+  warning messages (which occur when you read in ROOT 4/02 histos
+  with ROOT 4/03)
+
+2005-03-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfix in combiner tool
+
+2005-03-14 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * added temporary patch in IPTag to transport d0 & z0 errors to PV
+
+2005-03-11 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * commented out "library ..." line in req file
+
+2005-02-28 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * commented some chatty cout statements
+
+2005-02-25 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * cleaned-up requirements following checkreq warnings
+
+2005-02-24 Frederic Derue <derue@lpnhep.in2p3.fr>
+
+  * minor fixes for SoftLeptonTag for compilation warnings
+
+2005-02-22 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * fixes for instance names
+  * changes to use FitQuality
+
+2005-02-21 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * additions for IP and SV tags
+
+2005-02-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added Combiner for a list of taggers
+  * adjusted to map<std::string, ITagInfo*> change in JetEvent
+
+2005-02-16 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed interface of simpleCombine method in CombinerTool.
+  bool CombinerTool::simpleCombine(std::vector<Analysis::ITagInfo*>& bInfoVec, std::vector<double>& likelihood)
+  You have to give it a reference to a double vector now and it will return true or false (depending
+  if it was able to combine or not)
+
+2005-02-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfixes in LifetimeTag concerning the histo booking
+
+2005-02-03 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfixes in LikelihoodTool and CombinerTool
+
+2005-01-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * Included a HistoLimits struct into the HistoHelper class.
+    It checks the limits of the values to be filled into the histos.
+
+2005-01-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * renamed ITagJetTagTool.h to ITagTool.h
+  * adjusted to renaming in JetTagInfo and JetTagEvent
+
+2005-01-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * moved PhysicsAnalysis/BTaggingID/BTaggingUtils into this package
+  * appended the ChangeLog of the moved package to this one
+
+2005-01-19 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+  * Create package and tag as JetTagTools-00-00-00
+
+
+******** ChangeLog of the package when it was in
+PhysicsAnalysis/BTaggingID/BTaggingUtils
+
+2005-01-13  Fredric Derue <derue@lpnhep.in2p3.fr>
+
+  * BJetSoftLeptonTag.cxx (.h) : new class for soft lepton tagging
+  * Likelihhod.cxx : add soft lepton histos
+  * components/BTaggingUtils_entries.cxx : add BJetSoftLeptonTag
+
+2004-12-15  Fredrik Akesson <fredrik.akesson@cern.ch>
+
+  * Adjusted for major tag change in VxVertex, VxBilloirTools
+
+2004-12-10  Fredrik Akesson <fredrik.akesson@cern.ch>
+
+  * Adjusted for namespace change of Vertex to Trk
+
+2004-10-22 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed behaviour in SecVtxTag in case no sec vertex was found
+
+2004-10-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed ref histo boundaries
+  * various bug fixes
+
+2004-10-08 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * first version for release 9.0.0
+  * inheritance structure of the tag tools has been
+  changed. No casting from the client side is necessary
+  anymore.
+
+2004-09-24 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added new ref histos with TruthMatching
+
+2004-09-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted ranges of refhistos
+
+2004-09-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added distance to vertex as ref histo
+
+2004-08-30 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fixed errors in TrackProb calculation
+
+2004-08-23 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added possibility to call a third instance
+  of the lifetime tagtool for 3D btagging
+  * added the integratedNegativeIP histo for
+  the nTrackProbability calculation.
+
+2004-08-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted BJetLifetimeTagTool so it can be called
+  as two different instances (via jobOptions).
+  One to do the 2D btagging (with d0 in Rphi plane)
+  and one to do a "1D" btagging (with z0 in Rz plane)
+
+
+2004-08-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed BJetLifetimeTag to BJet2DLifetimeTag
+  * removed unneeded datamembers m_lhSig and m_lhBkg
+  and corresponding methods. This info is handles by the
+  BJet...Info classes in BTaggingEvent.
+
+2004-08-10 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfix (hopefully in 8.6.0):
+  m_trackSIP was not cleared at the end of each event ...
+
+2004-08-09 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added distance prim vtx - sec vtx as variable
+  * better "error" handling if no vertex was found
+  * new reference histos: added "negativeIP" distribution
+    (i.e. the negative part of the IP distribution mapped to
+    the positive x axis, used to calculate the track probability)
+
+2004-08-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * better error handling and messages
+    (especially if the ref histo files or the
+    ref histos themselfes are not found)
+
+2004-07-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added this ChangeLog file
+  * added /doc
+          /doc/mainpage.h
+
+
+

@@ -1,0 +1,1579 @@
+2015-07-16 Frank Filthaut
+	* in the JetBTaggerTool and StandAloneJetBTaggerAlg code, accommodate overwriting in Derivation context
+	* tag as BTagging-00-07-43
+
+2015-07-09 Yann Coadou
+	* Separate conditions for trigger and reco: had forgotten to put code in trunk (partially committed by Vadim already)
+	* Need new tag to reincorporate after Frank's updates, sorry for the mess
+	* Tagged as BTagging-00-07-42
+
+2015-07-02 Frank Filthaut
+	* degrade ERROR in BTagTrackAssociation (in case no track-to-jet association is configured) to a WARNING (in order to prevent Grid jobs from failing)
+
+2015-06-30 Frank Filthaut
+	* enable 'augmentation' mode in JetBTaggerTool: deep copy of	existing BTagging objects
+	* modify the related SetupJetCollectionRetag() in BTaggingConfiguration_LoadTools.py to handle high-level taggers only
+	* bug fix in StandAloneJetBTaggerAlg: correct the deep copying procedure
+	* tag as BTagging-00-07-41
+
+2015-06-26 Vadim Kostyukhin
+	* Activate SV2 tagger
+
+2015-06-26 Yann Coadou
+	* Separate conditions for trigger and reco
+	* Removed unnecessary _CalibrationFolderRoot, getCalibrationFolderRoot and setCalibrationFolderRoot
+	* Print active trigger taggers list
+	* Remove BasicJetFitter from default TriggerTaggers
+	* Adjust list of aliases in conjunction with update to calibration broker
+	* Tagged as BTagging-00-07-40
+
+2015-06-22 Wouter van den Wollenberg
+	* fixed bug in ./share/BTagging_jobOptions.py
+	* tagged as BTagging-00-07-39
+
+2015-06-18 Emmanuel Le Guirriec
+        * check solenoid status in C++ (ATLASRECTS-2194)
+	* tagged as BTagging-00-07-38
+
+2015-06-09 Wouter van den Wollenberg
+	* added IBL hit requirement setting to negative IP taggers.
+	* added support for configuration specific output file settings.
+	* tagged as BTagging-00-07-37
+
+2015-06-04 Yann Coadou
+	* Added TriggerTaggers flag, with list of taggers to be used in trigger
+	* tagged as BTagging-00-07-36
+
+2015-06-04 Wouter van den Wollenberg
+	* decreased MV2 dependence on JetFitter tools. It no longer depends directly on the actual taggers.
+	* switched the JetFitterNN flag on in BTaggingFlags (it was off, but this did not affect anything before since MV2 was on).
+	* switched off some unused taggers in BTaggingFlags.
+	* tagged as BTagging-00-07-35
+
+2015-05-30 Wouter van den Wollenberg
+	* added some recent changed made to IP3D also to IP3DNeg (including the storage of sum track pT and JetPtMinRef).
+	* tagged as BTagging-00-07-34
+
+2015-05-28 Kazuya Mochizuki
+	* add a flag to add MV2 inputs to btagging object
+	* tagged as BTagging-00-07-33
+
+2015-05-25 Wouter van den Wollenberg
+	* added Run1/Run2 switch to IP2DNeg and IP3DNeg.
+	* tagged as BTagging-00-07-32
+
+2015-05-25 Wouter van den Wollenberg
+	* fixed LoadTools not respecting the setting of doNotCheckForTaggerObstacles().
+	* fixed configuration settings for IP2DNegDetailedTrackGradeFactory.
+	* fixed configuration settings for IP3DNegDetailedTrackGradeFactory.
+	* tagged as BTagging-00-07-31
+
+2015-05-18 Kazuya Mochizuki
+	* add JetPtMinRef configuration parameter for the reference mode
+	* tagged as BTagging-00-07-30
+
+2015-05-18 Wouter van den Wollenberg
+	* added the CalibrationFolderRoot as a member to the configuration instance and some functions to set and retrieve it.
+	* tagged as BTagging-00-07-29
+
+2015-05-12 Wouter van den Wollenberg
+	* added much more flexibility to how the various functions check for prerequisites.
+	* added	a new configuration scheme: Retag, which forgoes setting up basic tools and has taggers not set up prerequisite taggers.
+	* tagged as BTagging-00-07-28
+
+2015-05-12 Wouter van den Wollenberg
+	* made things a bit more consistent in naming; renamed BTagCalibBroker_OnlineTriggerConfiguration_jobOptions.py to BTagCalibBroker_Trig_jobOptions.py so the name mirrors the actual configuration instance name. A similar change was committed to JetCalibration.
+	* tagged as BTagging-00-07-27
+
+2015-05-07 Wouter van den Wollenberg
+	* disabled the JetVertexCharge tool in the default setup
+	* tagged as BTagging-00-07-26
+
+2015-05-06 Wouter van den Wollenberg
+	* fixed a bug where some core tools where not given a unique name when a non-default configuration instance was used.
+	* tagged as BTagging-00-07-25
+
+2015-04-22 Luca Colasurdo
+	* initial import of the JetVertexCharge configuration files
+	* added the muon association in BTagTrackAssociation.cxx 
+	* tag as BTagging-00-07-24
+
+2015-04-02 Wouter van den Wollenberg
+	* added some retrieval functions in the configuration for attributes of tools to sidestep the 'PublicToolHandle problem'.
+	* tagged as BTagging-00-07-23
+
+2015-03-26 Wouter van den Wollenberg
+	* added separate setup function in LoadTools.py for online tagging.
+	* added support for dynamic xAODBaseNames for different configuration instances.
+	* tagged as BTagging-00-07-21
+
+2015-03-17 Frank Filthaut
+	* add AntiKt2TrackJets collection for tagging (and add corresponding aliases)
+	* tagged as BTagging-00-07-19
+
+2015-03-13 Valerio Dao
+	* implementing run-dependen flag for SVtagger
+	* tagged as BTagging-00-07-18
+
+2015-03-13 Yann Coadou
+	* re-enabling MV2, to be used with run 2 training in run 1
+	* tagged as BTagging-00-07-17
+
+2015-03-05 Valerio Dao
+	* disabling new taggers when running on Run1 + more fixes from Yann
+	* tagged as BTagging-00-07-16
+
+2015-03-04 Valerio Dao
+	* implementing Run1 VS Run2 automatic switched to prevent crashing
+	* tagged as BTagging-00-07-15
+
+2015-03-03 Valerio Dao
+	* new aliases from Yann
+	* fix for MV2m input collection
+	* tagged as BTagging-00-07-14
+
+2015-03-02 Valerio Dao
+	* enabling new taggers (they need a new calib file, BTagCalibALL-08-01 )
+	* switching to the latest MV2 training configuration (new calib file needed)
+	* switching on IPxD grading (new calib file needed)
+	* tagged as BTagging-00-07-13
+
+2015-03-02 Valerio Dao
+	* fixing aliases (everything pointing to LCTopo folder in case calibrations are missing)
+	* disabling few deprecated taggers for T0 reconstruction
+	* adjusting the list of jet collections
+	* tagged as BTagging-00-07-12
+
+2015-03-02 Wouter van den Wollenberg
+	* fixed a conflict between the separated configurations and the change made in BTagging-00-07-07.
+	* tagged as BTagging-00-07-11
+
+2015-03-01 Wouter van den Wollenberg
+	* added support for separate configurations.
+	* added support for a separate instance of the calibration broker.
+	* tagged as BTagging-00-07-10
+
+2015-02-28 Frank Filthaut
+	* forgot to strip the trailing "Jets" from the container output strings; now done
+	* tagged as BTagging-00-07-09
+
+2015-02-28 Frank Filthaut
+	* changed share/BTaggingReconstructionOutputAODList_jobOptions.py so as not to use wildcards (some code duplication, will need to be improved later)
+	* tagged as BTagging-00-07-07
+
+2015-02-27 mociduki
+	* update configuration for MV2
+	* tagged as BTagging-00-07-06
+
+2015-02-26 Wouter van den Wollenberg
+	* Fixed bug where SecVtxFinderxAODBaseNameList was not matching the size of the tool handle list in BTagSecVertexing in some cases.
+	* tagged as BTagging-00-07-05
+
+2015-02-25 Emmanuel Le Guirriec
+	* unchecked status fixed in BTagTrackAssociation.cxx
+	* tagged as BTagging-00-07-04
+
+2015-02-23 Valerio Dao
+	* dropping the IBL hit in IP taggers
+	* updating some defaults in IPtaggers
+	* Tagged as BTagging-00-07-02
+
+2015-02-19 Giacinto Piacquadio
+	* Setting the PV container info to be used in the secondary vertex tools
+	* Tagged as BTagging-00-07-01
+
+2015-02-04 Royer Ticse Torres
+	* add missing check on StatusCode
+	* tagged as BTagging-00-07-00
+
+2015-02-xx Emmanuel Le Guirriec
+	* when overwriting containers use the correct options
+	* tagged as BTagging-00-06-99
+
+2015-01-25 Wouter van den Wollenberg
+	* Setting up a particle associator without using it now does trigger a JetBTagger tool update.
+	* Rewrote LoadTools to use a list of taggers instead of the btagging flags (although this list is filled via the btagging flags by default). Will be useful later when moving to general ATLAS flags.
+	* Cloning tools now automatically updates xAODBaseName when present in the metadata.
+	* Tagged as BTagging-00-06-98
+
+2015-01-15 Frank Filthaut
+	* pass primary vertex (BTagTool, BTagSecVertexing) and TrackParticle container (BTagTrackAssociation)
+	  optionally to the main methods (necessary for trigger purposes as SG retrieval cannot be used there)
+	* tagged as BTagging-00-06-97 (intended to tag as BTagging-00-06-96 but forgot to commit code!)
+
+2015-01-13 Georges Aad
+	* fix to allow multiple MSV running at the same time
+	* does not affect normal config at all
+	* tagged as BTagging-00-06-95
+
+2014-12-14 Wouter van den Wollenberg
+	* adjusted some of the settings of InDetVKalMultiVxInJetTool based on input from Royer and added the MSVVariablesFactory tool in the configuration
+	* tagged as BTagging-00-06-93
+
+2014-12-14 Wouter van den Wollenberg
+	* ported InDetVKalMultiVxInJetTool to release 19/20 and added it as a prerequisite for MultiSVbb1 and 2
+	* tagged as BTagging-00-06-92
+
+2014-12-12 Wouter van den Wollenberg
+	* ported naive calibration for SV1Flip, IP2DNeg, IP3DNeg, MV1Flip, MV2cXFlip, MVbFlip and MV1cFlip to release 19/20
+	* tagged as BTagging-00-06-91
+
+2014-12-12 Emmanuel Le Guirriec
+        * updated calibration alias for new run 2 configs
+	* tagged as BTagging-00-06-90
+
+2014-12-11 Emmanuel Le Guirriec
+        * remove warning in Standalone code
+	* tagged as BTagging-00-06-89
+
+2014-12-11 Emmanuel Le Guirriec
+        * deep copy of Jet during retagging
+	* tagged as BTagging-00-06-88
+
+
+2014-12-10 Frank Filthaut
+	* disable cone-based labelling (as it is now being done as a part of jet reconstruction)
+	* tagged as BTagging-00-06-87
+
+2014-12-05 Frank Filthaut
+	* container renaming: TruthEvent -> TruthEvents
+	* tagged as BTagging-00-06-85
+
+2014-12-05 Frank Filthaut
+	* change SVx configuration (simpler switch between Run-1 and Run-2 detector configurations)
+	* tagged as BTagging-00-06-84
+
+2014-12-04 Frank Filthaut
+	* allow for modified track grading
+	* tagged as BTagging-00-06-83
+
+2014-12-03 Wouter van den Wollenberg <wouter.van.den.wollenberg@cern.ch>
+	* configuration cleanup
+	* tagged as BTagging-00-06-82
+
+2014-11-27 Frank Filthaut
+	* move to version-less containers
+	* switch on MSV taggers
+	* tagged as BTagging-00-06-81
+
+2014-12-01 Emmanuel Le Guirriec
+        * delete pointes created durin shallow copies
+	* tagged as BTagging-00-06-80
+
+2014-11-26 Frank Filthaut
+	* change the variable name for cone-based labelling from "TruthLabelID" to "ConeTruthLabelID"
+
+2014-11-03 Frank Filthaut <F.Filthaut@science.ru.nl>
+	* change Rbeampipe and RlayerB parameters for InDetVKalVxInJetTool to be more optimal for Run 2
+	* tagged as BTagging-00-06-75
+
+2014-11-02 Frank Filthaut <F.Filthaut@science.ru.nl>
+	* fix re-tagging mode (SV reconstruction needs to be rerun if new BTagging objects are created)
+	* change primary vertex container name to "PrimaryVertices" in BTaggingFlags.py
+	* tagged as BTagging-00-06-74
+
+2014-10-21 Wouter van den Wollenberg <wouter.van.den.wollenberg@cern.ch>
+
+	* Added new configuration scheme.
+	* Tagged as BTagging-00-06-73.
+
+2014-08-08  scott snyder  <snyder@bnl.gov>
+
+	* Tagging BTagging-00-06-69.
+	* Const and warning fixes.
+
+2014-07-23 Giacinto Piacquadio
+	* fix debugging bug in JetFiter job options (put by mistake, why was it working correctly ???)
+	* tagging as BTagging-00-06-68
+
+2014-05-22 Emmanuel Le Guirriec
+        * thisJetTruthLabel = -1 when not jet is matched
+	* tagging as BTagging-00-06-58
+
+2014-05-10 Emmanuel Le Guirriec
+        * See ChangeLog BTagging-00-06-52-branch (Attila Krasznahorkay)
+	* tagging as BTagging-00-06-54
+
+2014-05-09 Emmanuel Le Guirriec
+        * Fix for calibration
+	* Temp fix for writing SecVtx
+	* tagging as BTagging-00-06-53
+
+2014-05-02 Aaron Armbruster
+	* Fix crash in BTagSecVertexing
+	* Include SV0 in rel19 jobOptions
+	
+2014-04-14 Emmanuel Le Guirriec
+        * Merge with BTagging-00-06-52-branch
+
+
+2014-03-21 Emmanuel Le Guirriec
+        * BTagName changed
+	* delete pointer form BTagTrackAssociation
+	* tagging BTagging-00-06-52-03
+
+2014-04-01 Aaron Armbruster
+	* BTagLabeling with xAOD
+	
+2014-03-28 Emmanuel Le Guirriec
+	* Configuration for ESD and AOD writting
+	* tagging as BTagging-00-06-48
+
+2014-03-21 Emmanuel Le Guirriec
+	* BTagName to prepare re-tagging
+	* new LoadTools for Release 19
+	* Verbose modes improved
+	* tagging as BTagging-00-06-45
+
+2012-10-17 Walter Lampl
+	* CLHEP2 migration
+	* tagging as BTagging-00-06-42
+
+2012-06-18 Yoshikazu Nagai
+	* Add protection on trackassociation part.
+	* tagged as BTagging-00-06-41
+
+2012-05-21 Yoshikazu Nagai
+	* Add share/BTagging_QGTag.py
+	* tagged as BTagging-00-06-40
+
+2012-05-15 Yoshikazu Nagai
+	* Update GbbNNTag joboption
+	* tagged as BTagging-00-06-39
+
+2012-05-14 Yoshikazu Nagai
+	* Fix tagger name for the NewLikelihoodTool configuration of BTagging_SecondSoftMuonTag.py/BTagging_SecondSoftMuonTagChi2.py
+	* tagged as BTagging-00-06-38
+
+2012-05-03 Yoshikazu Nagai
+	* Add protection for PrimaryVertexSelector in src/BTagTool.cxx 
+	* tagged as BTagging-00-06-37
+
+2012-04-26 Yoshikazu Nagai
+	* Modify src/BTagTool.cxx to use PrimaryVertexSelector
+	* tagged as BTagging-00-06-36
+
+2012-03-23 Yoshikazu Nagai
+	* Modify BTaggingConfig.py to add getStandardBtaggerTool needed for jet reconstruction
+	* tagged as BTagging-00-06-34
+
+2012-03-22 Yoshikazu Nagai
+	* Add BTagging_SecondSoftMuonTagChi2.py
+	* tagged as BTagging-00-06-33
+
+2012-03-06 Yoshikazu Nagai
+	* Change Default muon collection to "Staco", and "Muons" as second 
+	* M BTaggingFlags.py, BTagging_jobOptions.py, BTagging_SoftMuonTagChi2.py,BJetBuilder.cxx
+	* Add BTagging_SecondSoftMuonTag.py
+	* tagged as BTagging-00-06-32
+
+2012-02-14 Yoshikazu Nagai
+	* Change Default muon collection to "Muons"
+	* M BTaggingFlags.py, BTagging_SoftMuonTagChi2.py
+	* tagged as BTagging-00-06-31
+
+2012-02-13 Georges Aad
+	* fix VKal config for MultiSV
+	* tagged as BTagging-00-06-30
+
+2012-02-02 Yoshikazu Nagai
+	* Turn-off JetProb flag like: setattr(self, attr, False)
+	* M BTaggingFlags.py
+	* tagged as BTagging-00-06-29
+
+2012-01-30 Yoshikazu Nagai
+	* Turn-on SoftMuChi2 Flags
+	* M BTaggingFlags.py/BTagging_SoftMuonTagChi2.py
+	* tagged as BTagging-00-06-28
+
+2012-01-30 Yoshikazu Nagai
+	* Fix "ReTagged" Jet Collection Name from X+"AOD" to X+"ReTagged"
+	* M BTagging_standAlone.py 
+	* tagged as BTagging-00-06-27
+
+2012-01-29 Laurent Vacavant
+    * changes for MV1 (and MV2) taggers
+    * modified priority of taggers for auto-descoping
+    * tagged as BTagging-00-06-26
+
+2012-01-27 Yoshikazu Nagai
+	* Modify "ReTagged" Jet Collection Name from X+"AOD" to X+"ReTagged"
+	* M BJetBuilder.cxx/BJetBuilderFast.cxx
+	* tagged as BTagging-00-06-25
+
+2012-01-05 Yoshikazu Nagai
+	* fix previous tagged version
+	* tagged as BTagging-00-06-24
+
+2012-01-04 Yoshikazu Nagai
+	* add New shared track categories for IP2D/IP3D tagger.
+	* tagged as BTagging-00-06-23
+
+2012-01-03 Yoshikazu Nagai
+	* add b-layer hit relaxing for IP2D/IP3D tagger.
+	* tagged as BTagging-00-06-22
+
+2011-07-14 Georges Aad
+	* less taggers and jet collection (save space)
+	* tagged as BTagging-00-06-21
+
+2011-05-31 Georges Aad
+	* add config for GbbNNTag (obo Maria Laura Gonzalez Silva)
+	* run bb track assoc in standalone
+	* config bb track assoc
+	* tagged as BTagging-00-06-20
+
+2011-05-26 Georges Aad
+	* different track association for bb jets
+	* change DoubleSV0 tagger name to MultiSV
+	* change MutliSV tagger track selection top be as for SV1
+	* tagged as BTagging-00-06-19
+
+2011-04-29 Georges Aad
+	* add aliases for AntiKtXLCTopo jet collections 
+	* tagged as BTagging-00-06-18
+
+
+2011-04-29 Georges Aad
+	* Tag AntiKtXLCTopo jet collections rather than  AntiKtXTopo
+	* tagged as BTagging-00-06-17
+
+2011-04-15 Georges Aad
+	* Add config for double sv0 tagger (not finalized/optimized yet)
+	* tagged as BTagging-00-06-16
+
+2011-04-15 Georges Aad
+	* fix for pu labeling in standalone
+	* tagged as BTagging-00-06-15
+
+2011-02-03  Georges Aad
+	* stop non-default taggers
+	* tagged as BTagging-00-06-14
+	
+2011-02-03  Jean-Baptiste de Vivie
+	* BTagTool.cxx : allows for a second TruthInfo if there is pile-up
+	* tagged as BTagging-00-06-13
+
+2011-01-24 Jean-Baptiste de Vivie
+	* add the missing data member in BJetBuilder header file
+	* tagged as BTagging-00-06-12
+
+2010-09-22 Jean-Baptiste de Vivie
+	* do the standard track-jet association even for track-jets
+	* tagged as BTagging-00-06-11
+
+2010-12-06 Giacinto Piacquadio
+	* modified negative mistag versions of IP3D to probe positive signed part of PDF
+	* added IP3DPos to JetFitter version based on neural network (to trace differences)
+	* tagged as BTagging-00-06-10
+
+2010-12-03 Laurent Vacavant
+	* added flipped version of IPnDSpc taggers
+	* changed configuration of SV1Flip and SV2Flip to use new InDetVKalVxNegativeTagInJet
+	* changed BTagging_LoadTools to load InDetVKalVxNegativeTagInJet
+	* tagged as BTagging-00-06-09
+
+2010-12-02 Georges Aad
+	* two muon taggers
+	* tag BTagging-00-06-07
+
+2010-12-01 Giacinto Piacquadio
+	* add new taggers for JetFitter to get negative mistags from data
+	* tagged as BTagging-00-06-06
+
+2010-12-01 Laurent Vacavant
+	* configured new instances of taggers: {IP2D,IP3D}x{,Spc}x{Pos,Neg}
+		- Spc: special mode with SignWithSvx=True
+		- Pos,Neg: use only positive/negative IP
+	* tagged as BTagging-00-06-05
+
+2010-11-07 Giacinto Piacquadio
+	* activate BTaggingFlags.writeSecondaryVertexInfo flag in BTagTool 
+	* tag BTagging-00-06-04
+
+2010-11-03 Johanna Fleckner
+	* introduce new flags to produce Efficiency and fake rate SLIM ntuples
+	* tag BTagging-00-06-03
+
+2010-11-01 Giacinto Piacquadio
+	* re-add JetFitter variables in case only JetFitterTagNN is switched on
+	* tagged as BTagging-00-06-02
+
+2010-10-XX Giacinto Piacquadio
+	* added possibility to run only NN version of JetFitter tagger
+	* tagged as BTagging-00-06-01
+
+2010-10-17 Georges Aad
+	* tag new jet collections (AntiKt4TopoEMJets and AntiKt6TopoEMJets)
+	* tagged as BTagging-00-06-00
+
+2010-10-15 Georges Aad
+	* use JetFinderConfig to getFastKt()
+	* tagged as BTagging-00-05-95
+
+2010-09-22 Jean-Baptiste de Vivie
+	* import BFieldFlags 
+	* tagged as BTagging-00-05-94
+
+2010-09-13  Pierre-Antoine Delsart  <delsart@localhost>
+
+	* merge changes from branch,
+	* tagged BTagging-00-05-93
+
+2010-09-06 Georges Aad
+	* add AntiKt6Topo and link to AntiKt6H1Topo,AntiKt6H1Tower
+	* remove explicit db tag from BTagging_standAlone (added by mistake)
+	* tagged BTagging-00-05-92
+
+2010-09-01 Georges Aad 
+	* add aliases to the new jet collections (without H1) to BTaggingFlags.py
+	* remove Cone4Tower jet collection from BTaggingFlags.py
+	* some changes in BTagging_standAlone to run on new ESD with rel 16 (new jet collections)
+	* tagged as BTagging-00-05-91
+
+2010-09-03 Jean-Baptiste de Vivie
+	* put the calibration aliases also in the branch
+	* tagged as BTagging-00-05-87-02
+
+
+2010-08-19 Cecile Lapoire
+	* added input type info (data/mc) in JetProb and JetProbFlipTag job options  
+	* corrected JetProbFlipTag job option so that it uses only tracks with d0<0	
+	* tagged as BTagging-00-05-89
+
+2010-08-09 Laurent Vacavant
+	* removed default channel aliases for calibration in BTaggingFlags 
+	* tagged as BTagging-00-05-88
+
+
+2010-07-19  Pierre-Antoine Delsart  <delsart At in2p3.fr>
+	* python/BTaggingConfig.py: adding BTaggingConfig.py to ease jet configuration
+	* tagged as BTagging-00-05-86
+
+
+2010-07-19  Pierre-Antoine Delsart  <delsart At in2p3.fr>
+	* python/BTaggingConfig.py: adding BTaggingConfig.py to ease jet configuration
+	* tagged as BTagging-00-05-86
+
+
+2010-06-08 Johanna Fleckner
+	* changed BTagging_jobOptions.py to load ntuple production even if only slim ntuple set to true
+	* tagged as BTagging-00-05-84
+
+2010-05-19 Laurent Vacavant
+	* changed BTagging_LoadTools to automatically disable b-tagging if solenoid is off
+	* tagged as BTagging-00-05-82
+
+2010-04-30 Jean-Baptiste de Vivie
+        * fixes in BTaggingFlags and BTagging_SoftElectronTag
+	* tagged as BTagging-00-05-81
+
+2010-04-22 Laurent Vacavant
+	* added flag to name the SLIM version of the ntuple
+	* cleaned up BTagging_standAlone.py
+	* tagged as BTagging-00-05-80
+
+2010-04-20 Laurent Vacavant
+	* further minor fixaes for descoping: removed IP1D from MediumPrio (duplicated, already in LowPrio), removed JetProbFlip
+	* tagged as BTagging-00-05-79
+
+2010-04-19 Laurent Vacavant
+	* removed old taggers from low-priority list of taggers in prevision for the switch to descoping level 1
+	* taggers no longer run are: lifetime1D, lifetime2D, lifetime3D, secVtxFitBU, secVtxFitTD
+	* tagged as BTagging-00-05-78
+
+2010-03-22 Laurent Vacavant
+	* changed default in BTagging_standAlone.py not to re-run reconstruction (only for experts) 
+	* tagged as BTagging-00-05-77
+
+2010-03-17 Jean-Baptiste de Vivie
+        * better BTagging_standAlone.py
+	* tagged as BTagging-00-05-76
+
+2010-03-13 Laurent Vacavant
+	* added flag BTaggingFlags.CalibrationSingleFolder to enable new DB schema: when true, there is only one single true DB folder, the other      	  folders (one per tagger) are redirected to this one 
+	* changed default to enable the new DB schema.
+	* added flag to define jet collections to ntuple: BTaggingFlags.JetsForNtuple
+	* tagged as BTagging-00-05-75
+
+2010-02-08 Giacinto Piacquadio
+	* removed the old jobOptions for the calibration files for JetFitter
+	* fixed handling of list of jets for JetFitter (follows the other taggers now)
+	* tagged as BTagging-00-05-74
+
+2010-02-01 Jean-Baptiste de Vivie
+        * added the aliases corresponding to the new jet collections so that the CalibrationBroker does not report ERROR (all this needs revision !)
+	* tagged as BTagging-00-05-71
+
+2010-02-01 Jean-Baptiste de Vivie
+        * better AutoInspection using InputFilePeeker
+	* tagged as BTagging-00-05-72
+
+2010-01-31 Laurent Vacavant
+	* minor fix in printout for crash in mode VERBOSE in BJetBuilder
+	* added new jet collections Cone4H1TopoTower, AntiKt4H1TopoTower and AntiKt6H1TopoTower in default flag, following recent change in jet collection names
+	* tagged as BTagging-00-05-70
+	
+2010-01-31 Laurent Vacavant
+	* removed default value for the b-tagging calibration tag (request from DataPrep): will use the global hierarchical tag now
+	* tagged as BTagging-00-05-73
+
+2010-01-25 Laurent Vacavant
+	* fixed BTagging_LoadTools to detect 'AODJets' during automatic inspection (obo Nicolas)
+	* tagged as BTagging-00-05-69
+
+2010-01-18 Jean-Baptiste de Vivie
+	* Cleaning of BTagging_BuildAntiKtZ4TrackJets.py (in particular use FastJet)
+	* Use autoconfiguration in BTagging_standAlone.py
+	* Possibility to use a GoodRun/GoodLumiBlock List in BTagging_standAlone.py (the user needs to provide
+	the xml file)
+	* tagged as BTagging-00-05-68 (from 65 to 68)
+	
+2009-12-04 Laurent Vacavant
+	* fixed the include.block problem
+	* tagged as BTagging-00-05-63
+
+2009-12-04 Laurent Vacavant
+	* added BTaggingFlags.RetagJets flag to replace local variable TheInputJetList
+	* tagged as BTagging-00-05-64
+
+2009-12-01 Laurent Vacavant
+	* added AutoInspectInputFile flag to disable automatic inspection of input file	
+	* added BTagging_BuildAntiKtZ4TrackJets.py and BTagging_BuildKt6TrackJets.py for track jets
+	* now tagging also AntiKtZ4TrackJets by default (after building them on-the-fly)
+	* tagged as BTagging-00-05-62
+
+2009-11-27 Johanna Fleckner
+	* include jobOptions for JetTagNtuple
+	* tagged as  BTagging-00-05-61
+
+2009-08-11 Laurent Vacavant
+	* better way to switch off completely btagging (e.g. for cosmics)
+	* done with a new flag: BTaggingFlags.Active
+	* tagged as BTagging-00-05-58
+
+2009-07-21 Giacinto Piacquadio 
+	* fix jobOptions for JetFitter
+	* tagged as BTagging-00-05-57
+
+2009-06-28 David Quarrie <David.Quarrie@cern.cern.ch>
+	* BTagging/BJetBuilder.h: Change debugging variables from uint to unsigned int for MacOSX compatibility
+	* tagged as BTagging-00-05-56
+	
+2009-06-18 Laurent Vacavant
+	* changed cuts in construction of InDetVKalVxNegInJet for SV0 (obo Sara)
+	* minor fix in BTagging_standAlone.py
+	* tagged as BTagging-00-05-55
+
+2009-06-17 Laurent Vacavant
+	* preparation for 15.3.0:
+	- enabled tagging of new jet collections: AntiKt4Tower, AntiKt4Topo, AntiKt6Tower (calibrations aliased to Cone4H1Tower for the time being)
+	- JetProb is now using only tracks with positive i.p. for tagging
+	- new checks to disable b-tagging if ID detector description not loaded, or if beamType is not collisions
+	- new debugging statements at end of BJetBuilder for early taggers
+	- new uniformized print-outs for b-tagging (#BTAG#)
+	* tagged as BTagging-00-05-53
+
+2009-06-17 Laurent Vacavant
+	* added configuration file for JetProbFlip
+	* SV0 configured to have its own SV0InfoPlus
+	* tagged as BTagging-00-05-54
+
+2009-04-18 Laurent Vacavant
+	* introduced JetProbPosTag (uses only tracks with positive d0/sigma) and the corresponding JetProbPosFlipTag for negative tags
+	* renamed JetProbNegTag for standard negative tag rates as JetProbFlipTag
+	* tagged as BTagging-00-05-52
+
+2009-04-09 Remi Zaidan
+	* changed default calibration tag to BTagCalib-03-00
+	* tagged as BTagging-00-05-51
+	
+2009-03-09 Laurent Vacavant   
+	* better fix for problem below (#47834)
+	* tagged as BTagging-00-05-50
+
+2009-03-06 Laurent Vacavant   
+	* added test of rec.doTruth and protection for automatic inspection to get MC key (bug $47834)
+	* tagged as BTagging-00-05-49
+
+2009-02-19 Laurent Vacavant   
+	* type of MC Truth information defined automatically --> removed BTaggingFlags.PoolInputType
+	* better handling of jet collections: existing ones are re-tagged by BJetBuilder, new ones are built *and* tagged by JetRec
+	* tagged as BTagging-00-05-48
+
+2009-02-04 Laurent Vacavant   
+	* adjusted BTagging_LoadTools for new default track-jet association: dR=f(pT)
+	* tagged as BTagging-00-05-47
+
+2009-01-02 Laurent Vacavant   
+	* software improvements (task#8629): AthenaBaseComps, requirement files, etc
+	* minor fix in re-labelling for taus
+	* removed superfluous printParameterSettings methods
+	* for retagging, appendix name defined only by jobO (default=AOD)
+	* added constituent information averages in end-of-run summary
+	* tagged as BTagging-00-05-46
+
+2008-12-30 Laurent Vacavant   
+	* cleaned up configurable print (printed now only if BTaggingFlags.OutputLevel = DEBUG or VERBOSE)
+	* got rid of BTaggingJPJ_jobOptions.py (not used anymore)
+	* tagged as BTagging-00-05-45
+
+2008-12-10 Laurent Vacavant   
+	* removed default value for calibration tag
+	* defined BTaggingFlags.ReferenceType and used it for IP and SV taggers
+	* tagged as BTagging-00-05-43
+
+2008-12-10 Laurent Vacavant   
+	* temporary put in new calibration tag BTagCalib-02-01
+	* fix indentation problem for ReferenceType
+	* tagged as BTagging-00-05-44
+
+2008-11-30 Giacinto Piacquadio
+	* enable reading of coefficients from DB in JetFitter
+	* some more protection against missing coeff. text files
+	* tagged as BTagging-00-05-42
+
+2008-11-28 Jean-Baptiste de Vivie
+	* use WARNING instead of FATAL for message when PVX not there
+	* tagged as BTagging-00-05-41
+
+2008-10-28 Laurent Vacavant
+	* enabling reconstruction descoping levels in main branch
+	* modified BTagging_LoadTools.py to disable SoftMu or SoftEl if muon or cal detector description is not present
+	* tagged as BTagging-00-05-40
+
+2008-10-27  Frederic Derue <derue@lpnhe.in2p3.fr>
+	* new jobOptions for SoftElectronTag with use of new TrackToVertexIPEstimator tool
+	* tagged as BTagging-00-05-39
+
+2008-10-23 Remi Zaidan
+	* new jobOptions for JetProb and JetProbNeg with use of new TrackToVertexIPEstimator tool
+	* tagged as BTagging-00-05-38
+	
+2008-10-18 Frederic Derue <derue@lpnhe.in2p3.fr>
+	* cmt/requirements : adapt for migration to Reconstruction/egamma
+	* tagged as BTagging-00-05-37
+
+2008-10-03 Laurent Vacavant
+	* fixed BJetBuilder for case where jet has no constituent
+	* tagged as BTagging-00-05-36
+
+2008-09-28 Thomas Goepfert
+	* modified jobOptions for TC tagger for usage of TrackToVertexIPEstimator
+	* tagged as BTagging-00-05-35
+
+2008-09-21 Laurent Vacavant
+	* fixed extrapolator configuration problem in BT_LoadTools.py
+	* tagged as BTagging-00-05-34
+
+2008-09-18 Laurent Vacavant
+	* preparation for reconstruction scoping levels: 3 new flags to define High/Medium/LowPriorityTaggers + changes in BT_LoadTools.py
+	* not yet actived in BT_LoadTools.py (rec.ScopingLevel not available yet)
+	* port of BTagging-00-05-26-02
+	* tagged as BTagging-00-05-31
+	* simplified a bit BT_LoadTools for reference mode
+	* tagged as BTagging-00-05-33
+
+2008-09-15 Laurent Vacavant
+	* adapted jobO for IP1D and IP2D for new tool to sign IP
+	* preparation of setup for TrackJets (not finished)
+	* default channel alias for Kt6TrackJets
+	* split root files in reference mode (one for each tagger)
+	* more INFO at the end of BJetBuilder
+	* tagged as BTagging-00-05-30
+
+2008-09-12 Giacinto Piacquadio
+	* keep pointer to VxCandidate instead of RecVertex in the ITagTool's
+	* new jobOptions for IP3D (with use of new TrackToVertexIPEstimator tool)
+	* tagged as BTagging-00-05-29
+
+2008-09-01 Jean-Baptiste de Vivie
+
+	* Cleaning : remove everything concerning LH
+	* Add a simple jobOpt to combine LR taggers and use them as Baseline Tagger
+	* Add a flag for the Baseline Tagger
+	* Retagging on ESD or AOD differs only in the input MCEventCollection name
+	  (a new Jet Collection is created from the old one, keeping all the Shapes/Constituents (if there) but removing Infos/Assoc
+	   this needs >= JetEvent-01-00-30)
+	* tagged as BTagging-00-05-28
+
+2008-08-28 Thomas Goepfert
+	* added TrackCounting tagger
+	* tagged as BTagging-00-05-27
+	
+2008-07-24 Laurent Vacavant
+	* defined default calibration tag as BTagCalib-01-02
+	* reactived Shared category for JetProb
+	* tagged as BTagging-00-05-26
+
+2008-07-21 Laurent Vacavant
+	* changed order of taggers: SV1 runs now before SV0, so SVInfoPlus of SV1 is saved (temporary while VK is fixing getNegativeTail)
+	* warning: set RejectBadTracks to False for all IPnD and JetProb taggers !!
+	* tagged as BTagging-00-05-25
+
+2008-07-16 Laurent Vacavant
+	* added a flag to force calibration to be taken from CERN Oracle DB (only for experts)
+	* tagging as BTagging-00-05-24
+
+2008-06-19 Giacinto Piacquadio
+	* fix for changes in InDetDetailedTrackSelectorTool
+	* use calib flag for JetFitter
+	* tagged as BTagging-00-05-22
+	
+2008-06-18 Laurent Vacavant
+
+	* flags for COOL channel aliasing
+	* minor fixes
+	* tagged as BTagging-00-05-20
+
+2008-06-17 Jean-Baptiste de Vivie
+
+	* updates for track-jets
+	* tagged as BTagging-00-05-19
+
+2008-06-03 Laurent Vacavant
+
+	* restored missing line in jobO for jet collection name
+	* tagged as BTagging-00-05-18
+
+2008-06-02 Laurent Vacavant
+
+	* removed reference for jInfo in BJetBuilder.cxx (line 318)
+	* now we use only one instance of the tool associating tracks to jet instead of one per jet collection: BTagTrackToJetAssociator
+	* restore jobO BTaggingJPJ (which is just including BTagging_LoadTools) for backwards compatibility
+
+2008-05-29 Laurent Vacavant
+
+	* removed tagging of True jets
+	* tagged as BTagging-00-05-16
+
+2008-05-29 Laurent Vacavant
+
+	* removed job BTagging_JPJ
+
+2008-05-28 Jean-Baptiste de Vivie
+        
+	* Do not load TrackSummaryTool
+	* tagged as BTagging-00-05-15
+
+2008-05-27 Giacinto Piacquadio
+  * store only base JetTagInfo object
+    for JetFitterTagNN and JetFitterCOMBNN
+  * tagged as BTagging-00-05-14
+
+2008-05-24 Laurent Vacavant
+
+  * left only Cone4H1Tower as default jet collection to tag
+  * added flag and jobO for JetProbNeg
+  * reorganized main jobOptio files
+  * tagged as BTagging-00-05-12
+
+2008-05-24 Laurent Vacavant
+  * added protection for null TagInfo pointers
+  * tagged as BTagging-00-05-13
+
+2008-05-23 Laurent Vacavant
+
+  * temporarily set categories to 'Good' only for JetProb (CoolHistSvc error until we update the DB)
+  * tagged as BTagging-00-05-11
+
+2008-05-22 Laurent Vacavant
+
+  * added flag and lines to load ParticleJet->Jet converter
+  * tagged as BTagging-00-05-10
+
+2008-05-20 Laurent Vacavant
+  * clean-up of jobO
+  * added flags for electron, muon, (photon) collections
+  * minor fixes to run JetProb in reference mode
+  * tagged as BTagging-00-05-09
+
+2008-05-19 Jean-Baptiste de Vivie
+  * Add a PhotonAssociation
+  * tagged as BTagging-00-05-07
+
+2008-05-19 Giacinto Piacquadio & Marc Lehmacher
+  * change jobOptions for multiple categories choice for IP taggers & JetProb
+
+2008-05-13 Laurent Vacavant
+  * added SV0 tagger
+  * tagged as BTagging-00-05-05
+
+2008-05-13 Remi Zaidan
+  * added BTagCalibrationBroker to BTagging_JetProb.py
+  * tagged as BTagging-00-05-06	
+
+2008-04-28 Laurent Vacavant
+  * cleaned up handling of true jet collections
+  * now tags only Cone4Truth (request of EDM group)
+  * tagged as BTagging-00-05-04
+
+2008-03-30 Jean-Baptiste de Vivie
+  * Adapt to new Jet EDM
+
+2008-02-24 Giacinto Piacquadio
+  * completed migration to InDetVKalVxInJetTool
+    (SecVtxTag and JetProb adapted too)
+  * created a common tool SVForIPTag to get the sec vtx 
+    direction and the V0s info for the IP Tagger
+  * JetFitter's jobOptions adapted to use COOL DB
+	
+2008-02-23 Giacinto Piacquadio
+  * IPTag and SVTag: use the new InDetVKalVxInJetTool
+  * Now only SecVtxTag still to be migrated (uses BTagVrtSec)
+	
+2008-02-21 Giacinto Piacquadio
+  * added updated Tagger for JetFitter
+  * added Neural Network based Tagger
+  * added Histo <-> NN tool
+	
+2008-02-19 Laurent Vacavant
+
+  * clean-up for local vs cool db
+  * tagged as BTagging-00-04-38
+
+2008-02-15 Laurent Vacavant
+
+  * changes in BTaggingFlags to handle real COOL DB
+  * tagged as BTagging-00-04-37
+
+2008-02-06 Frederic Derue <derue@lpnhe.in2p3.fr>
+
+  * changes in BTagging_SoftElectronTag.py for COOL
+  * tagged as BTagging-00-04-36
+
+2008-01-11 Laurent Vacavant
+
+  * changes in BTagging_jobOptions for new flag rec.doTruth
+  * tagged as BTagging-00-04-35
+
+2007-12-21 Laurent Vacavant
+
+  * updated main python script to setup things properly for COOL calibrations
+  * fixed deltaRMin values for labels in BTagTool
+  * tagged as BTagging-00-04-33
+
+2007-12-19 Giacinto Piacquadio
+
+  * fix checkreq warnings
+	
+2007-12-14 Laurent Vacavant
+
+  * changes for COOL calibrations:
+  * updated python configuration for IP, SV taggers to use NewLikelihoodTool
+  * added global flag BTaggingFlags.CalibrationFolderRoot
+  * tagged as BTagging-00-04-32
+
+2007-12-11 Giacinto Piacquadio
+  * fix unwanted change in JetFitterFinder track selection
+
+2007-12-09 Giacinto Piacquadio
+  * add general interface for secondary vertex finding
+  * JetFitter adapted to it, VKalVrt to come soon
+
+2007-11-28 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * A small algorithm for FastSim retagging (+corresponding jobOpt)
+  * Protection from S. Snyder in BJetBuilder
+
+2007-11-20 Laurent Vacavant
+
+  * fix in BTagging_jobO to allow switching off a tagger in reference mode
+
+2007-10-19 Giacinto Piacquadio
+  * fix jobOptions for JetFitter to make use of JetCollections from BTaggingFlags
+    (still need to add additional calibration files)	
+	
+2007-07-05 Andreas Wildauer
+  * bugfix with SecVtxTag and vertex tool (jobO only)
+
+2007-07-02 Andreas Wildauer
+  * fixed setting up of THistSvc in BTagging_jobOptions.py
+
+2007-06-20 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Configure BTagVrtSec. Still not the correct solution 
+    since it loads a tool (a TrackSummary Tool) that will never ever be used !!!!
+
+2007-06-10 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Add a flag to decide wether TruthInfo is computed or not
+
+2007-05-25 Henri Bachacou henri.bachacou@cern.ch
+  * Turned off smoothing of 1D histos for SoftMuonTag
+	(already done in reference files)
+	
+2007-04-28 Giacinto Piacquadio
+  * added configuration files for JetFitter based b-tagger
+	
+2007-04-28 Giacinto Piacquadio
+  * fixed Extrapolator WARNING messages for JetFitter	
+
+2007-04-10 Laurent Vacavant
+
+  * updated BTaggingFlags.Jets for new naming convention for jet collections
+  * added also truth jets in the list
+  * tagged as BTagging-00-04-08
+
+2007-04-03 Laurent Vacavant
+
+  * the list of jet collections to tag is now stored in BTaggingFlags.Jets
+  * minor fixes to BTagging_jobOptions for rerunning on AOD
+  * tagged as BTagging-00-04-06
+
+2007-03-19 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfix in jobO
+  * adjusted init list of BTagTool to give no compiler warning
+  * fixed OutputLevel datamember of BTaggingFlags to use INFO instead of 'INFO' etc.
+
+2007-03-16 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added datamember ToolHandle< ITagTool > and adjusted map<key, ITagTool> to be filled by it
+  * updated jobOs
+  * not tested yet but compiles just fantastic :-)
+
+2007-03-16 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Fix in the condition to load or not the VK tool 
+  * VK tool retrieved as configurable
+
+2007-03-16 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Fix an unchecked StatusCode
+  * Add a flag to store the InfoPlus only for some jet collections
+
+2007-02-23 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * fix in jobO to use Extrapolator as configurable
+
+2007-02-16 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Fix in JetProb jobOpt 
+
+2007-01-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted jobOs for configurables.
+  * Migration almost finished.
+  * Outstanding issues in BTagging:
+	* map<std::string, ITagTool*> not supported yet for configurables
+	* VKal vertex tool not retrieved as configurable yet
+	* some other (minor) parts of jobOs not changed yet (e.g. BJet jet finder jobO)
+
+2007-01-30 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted jobO for SecVtxTag for configurables
+
+2007-01-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * more adjustments to configurables
+  * all but the VKal fitter and the map< key, ITagTool* > are now treated as toolhandle/configurable
+
+2007-01-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * some more adjustments ...
+  * IPTag jobOs have been changed to configurables
+
+2007-01-24 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed BJetBuilder plus jobOs to use toolhandle for all tools (BTagTool and associator)
+  * BTagTool has not been adjusted yet
+  * BTagging_standAlone.py now runs again when using ESDs (AODs not tested)
+
+2007-01-09 Jean-Baptiste de Vivie <devivie@lal.in2p3.fr>
+
+  * Modif. for ESD/AOD egamma merge
+
+2006-11-30 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * update for all 12.0.4 jet collections + cleaning
+
+2006-11-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * update jobO for SoftEl (and Flags)
+
+2006-11-10 Henri Bachacou <henri.bachacou@cern.ch>
+
+  * Update jobO for SoftMu
+
+2006-11-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * fix checkreq warning and fix BTaggingFlags (forgot the flag for SoftMuCalib) 
+
+2006-10-30 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Modif. for SoftMu (add SoftLeptonTruthInfo)
+	
+2006-10-18 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Different Particle-to-Jet Associator for Track/Electron/Muon
+	
+2006-09-13 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Flags for taggers usable in lhSig
+  * The taggers used by lhSig are no more hard-coded
+
+2006-09-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Add IP1D (to keep at the end only one IP tool)
+  * Change default calib. file name 
+
+2006-08-28 Andreas Wildauer
+
+  * added change from Christian Weiser:
+	when running on AOD level it is possible now to add a suffix to the JetCollection
+	output name. necessary to work with different tp containers on AOD level
+
+2006-07-27 Laurent Vacavant
+
+  * updated jobOoption files to use BTaggingFlags.OutputLevel
+  * updated printout for BTaggingFlags
+
+2006-07-20 Andreas Wildauer
+
+  * adjusted to move JetEvent Reco -> Reco/Jet
+
+2006-07-07 Laurent Vacavant
+
+  * fix bug in printout in BTaggingFlags
+
+2006-06-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * possibility to keep TruthInfo when b-tagging on AOD
+    (save time in "unpacking" GEN_AOD : factor 2 in BJetBuilder)
+	
+2006-06-03 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * add the list of tracks used in the SVX to SvxSummary
+
+2006-05-24 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * can redo Constituent association at the AOD level
+	
+2006-05-22 Laurent Vacavant
+
+  * added BTaggingFlags to control:
+      - the input TrackParticle collection (+ truth map)
+      - the input primary vertex collection
+      - the calibration file
+      - the output level
+     
+2006-05-15 Laurent Vacavant
+
+  * soft lepton taggers are now ON by default
+
+2006-05-09 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * can do shared hits on AOD 
+    + load TS tool for BTagVrtSec (never used, but get rid of an error printout)
+    in BTagging_jobOptions.py
+  * load a convertor for TruthParticle in BTagging_standAlone.py
+
+2006 May 7 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated BTagging_standAlone jobO
+
+2006-04-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Update for the new SvxSummary
+
+2006-04-11 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix
+
+2006-0405 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Protect against crash if not soft Lepton (BJetBuilder)
+  * fix typos in BTagging_jobOptions.py.
+
+2006 March 27 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to:
+	some constituents have been moved to other packages (out of JetTagEvent)
+	Muon, ElectronConstituents -> Muon/ElectronIDEvent
+	IConstituent -> ParticleEvent
+
+2006 March 27 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjuset BJetBuilder to use new ParticleToJetAssociator tool (can deal with TPs, Muons. Electrons, ...)
+  * also adjusted to use the new PhysicsiAnalysis event structure (e.g. MuonIDEvent, ElectronPhotonIDEvent)
+  * not tested because cannot run against rel1
+
+2006-03-13 Laurent Vacavant
+
+  * several changes for new Infos and new ParticleJet
+
+2006-03-13 Laurent Vacavant
+
+  * fix BTagging_jobOoptions for reference mode
+
+2006 March 15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * removed AIDA support from jobOs
+  * reintroduced runModus property to BJetBuilder
+
+2006 March 14 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * enhanced BTagging_jobOption.py to run on 3 inputcollection
+  * tested with BTagging_stanAlone from ESD and AOD (ok at first look - well it runs ...)
+
+2006-03-08 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to work with new ParticleJet
+  * updated BTagging_standAlone.py, works fine again
+  * last version to work with 11.3.0 or earlier: BTagging-00-01-23
+
+2006-01-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to mem leak fix in ParticleJetTools
+  * turned off SecVtxTD tag by default
+  * added secvtxbu results to combined likelihood
+
+2006-01-13 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added
+  delete jetCollection;
+  to BJetBuilder to fix mem leak
+  (also fixes the mem leak message in TrackParticleAndJetMerger.cxx)
+
+2005-12-20 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * bug fix in BTagTool for IPTag
+
+2005-12-20 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * do not run Lifetime, SecVtx in ref. mode
+
+2005-11-22 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated BTagging_standAlone.py again, removed UserAnalysis algorithm (which
+    has to be provided by user of course).
+
+2005-11-22 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated BTagging_standAlone.py. Jean-Baptiste provided the
+    right settings that IP2D and 3D also run fine when reading AOD.
+
+2005-11-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated BTagging_standAlone.py jobOptions with Kai's working
+    version
+
+2005-11-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * applied patch to compile with gcc3.4.4
+  * only collect tag for 11.x.0
+
+2005-11-17 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+  
+  * Add Muon and Electron as Jet Constituents
+  * Add flags for SoftLeptonTag
+
+2005-11-17 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated jobOs to read in new ref histos
+  * turned off Lifetime3D (this is not the combination of 1D and 2D)
+
+2005-11-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted SecVtxTag and main jobO to use new location of
+    billoir fast vertex fitter and interfaces
+
+2005-11-08 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+  
+  * Add JetProbTag
+  * New way of doing SV
+
+2005-10-21 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * write smoothed Histograms only if explicitely required
+
+2005-10-16 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * Fixed symlink problem (reading of 1st event was 
+  failing when reading back AODs to redo b-tagging)
+
+2005-10-09 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * Changed default cone size to 0.4
+
+2005-09-26 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * Use two track classes by default
+
+2005-09-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * removed loading of THist dll
+
+2005-09-01 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to changes in VxVertex
+  * does not go with 10.0.X releases anymore
+  * tagged BTagging-00-01-00
+
+2005-08-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * some changes and bugfixes
+  * tagged BTagging-00-00-32
+  * LAST VERSION WITH 10.0.x
+
+2005-08-23 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bug fix in symlink part of JetTagContainer to ParticleBaseContainer
+
+2005-08-10 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * loading of VxBilloirTools added in jobO
+  * turn off marseille taggers for now, cause troubles in 10.4.0 (THistSvc)
+  * new tag BTagging-00-00-24
+
+2005-08-10 Jean-Baptiste de Vivie <devivie@cppm.in2p3.fr>
+
+  * add SV2 flag (BTaggingFlags.py)
+  * run SV2 if required (BTagging_jobOptions.py)
+  * comment the VertexTag part
+	
+2005-08-09 David Quarrie <David.Quarrie@cern.ch>
+
+	* cmt/requirements: replace dependency on AthenaRunTime by
+	AtlasReconstructionRunTime
+
+2005-08-09 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * clean up of jobO and modifs for THistSvc
+
+2005-05-02 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added 
+     include ( 'TrackToVertex/TrackToVertex_jobOptions.py' )
+    to BTagging_jobOptions.py
+    This is to load the TrackToVertex tools needed by the tags
+  * NOTE: 
+
+        BTagging-00-00-17
+    is the LAST TAG which works with 10.0.x branch. With the shift
+    to TrackToVertex tools 10.2.0 or higher is needed 
+
+2005-04-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted BTagging to run on AOD as well
+	-> new BTaggingFlag
+	BTaggingFlags.PoolInputType == "ESD" # default
+	BTaggingFlags.PoolInputType == "AOD" 
+  * added BTagging_standAlone jobOptions to run from ESD and AOD
+  * bug fix in JetTag kinematics. Even if no vertex was found JetTag kinematics
+  will be set and a TruthInfo object added.
+
+2005-04-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * minor changes to jobOs
+
+2005-03-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changed cone size for JetTrack association to 0.4 (from 0.7)
+  * removed one jobO line concerning JetTrackTruthMatching
+
+2005-03-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * changes in jobO and python flag to grant easy access to
+    different truth matching tools
+
+2005-03-17 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * fix in BTagJet for the rare case where there is no primary
+    vertex (vx=vy=vz=0): taggers not called.
+
+2005-02-28 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * added LifetimeTag1D to the combined lh
+
+2005-02-27 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * m_combinedLikeihood variabels now contains combination of
+    LT2D and SVBU tags and not just a combination of ALL tags.
+
+2005-02-25 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * changes to be able to use any jet truth match tool
+
+2005-02-25 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated jobOs for Lifetime and SecVtxTags
+
+2005-02-22 Laurent Vacavant <vacavant@in2p3.fr>
+
+  * fixes in jobO
+
+2005-02-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * some changes to BJetBuilder (added jet selection part of Laurent)
+
+2005-02-16 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * updated doxygen documentation (not final but better than before :-) )
+
+2005-02-15 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted jet handling in BJetBuilder and BTagTool
+	-> TrackParticleJetMerging is done in BJetBuilder
+	-> Jet-Truth-Labeling is done in BTagTool
+	-> adjusted to use of TruthInfo object
+
+2005-02-09 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to changes in JetTagInfo
+
+2005-02-03 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * bugfixes in BTagTool and BJetBuilder
+
+2005-01-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * adjusted to renaming in JetTagInfo, JetTagEvent and JetTagTools
+
+2005-01-31 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+  * removed the normalize histo call in the finalize method of
+    the BJetBuilder algorithm.
+
+2005-01-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* moved PhysicsAnalysis/BTaggingID/BTaggingAlgs into this package
+	* appended the ChangeLog of the moved package to this one
+
+2005-01-19 Emil Obreshkov <Emil.Obreshkov@cern.ch>
+
+	* Create package and tag as BTagging-00-00-00
+
+
+******** ChangeLog of the package when it was in
+PhysicsAnalysis/BTaggingID/BTaggingAlgs
+
+2005-01-13  Fredric Derue <derue@lpnhep.in2p3.fr>
+
+	* BJetBuilder.cxx : introduce soft lepton case
+	* share/BTagging_SoftLeptonTagElec.py : new .py for soft electron case
+	* share/BTagging_SoftLeptonTagMuon.py : new .py for soft muon case
+	* share/BTagging_jobOptions.py : add soft lepton case (but commented)
+
+2004-12-10  Fredrik Akesson <fredrik.akesson@cern.ch>
+
+	* Adjusted for namespace change of Vertex to Trk
+
+2004-11-10 Ketevi A. Assamagan <ketevi@bnl.gov>
+
+	* BTaggingAlgs-00-08-08
+	* removing the system of units
+
+2004-11-10 Fredrik Akesson <fredrik.akesson@cern.ch>
+
+	* BTaggingAlgs-00-08-12
+	* Writing out empty BJet container when there are no jets
+
+2004-10-22 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* worked on documentation
+
+2004-10-21 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* improved steering of lifetime tag
+	* various bugfixes
+
+2004-10-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+        * added coherent steering of the TruthMatching algorithm
+  
+2004-10-14 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* added a separate jobO to run an instance of CBNT_Jet
+	on the JetCollection we use for the b-tagging
+	* added a BTaggingFlags.doBJetCBNT switch to turn it on/off
+
+2004-10-08 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* first version for 9.0.0
+	* adjusted to changes in BTaggingUtils (no casting to
+	tools necessary anymore)
+	* made seperate jobOptions for every tag which are called in
+	the main algorithm
+
+2004-09-20 Ketevi A. Assamagan <ketevi@bnl.gov>
+
+	* tagging BTaggingAlgs-00-07-01
+	* fixing BJetBuilder.xxx for symLink
+
+2004-09-17 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* adjusted to changes in InDetPriVx and VxVertex
+	* added BJetTruthMatching
+
+2004-09-14 Ketevi A. Assamagan<ketevi@bnl.gov>
+
+	* tagging BTaggingAlgs-00-06-02
+	* introducing symLinks
+
+2004-09-13 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* minor changes to cut on tracks
+
+2004-09-11 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* added Kyles TrackParticleAndJetMerger (or similar ;-) )
+	* added flag to jobOs to choose the JetFinder base: Cells or TrackParticles
+
+2004-09-11 Tadashi Maeno <Tadashi.Maeno@cern.ch>
+
+	* 00-05-14
+	* fixed TrackParticleAndJetMerger for AnalysisTools
+
+2004-09-07 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* when running in analysis mode the get_files
+	command is not needed anymore to copy the refhistos
+	to the run directory. The btagger finds them in
+	the InstallArea/share now.
+
+2004-09-06 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* fixed infinite loop error in nTrackProb calculation
+
+2004-08-30 Tadashi Maeno <Tadashi.Maeno@cern.ch>
+
+	* 00-05-11
+	* fixed BTagJetFinder_jobOptions.py for ESDtoAOD
+
+2004-08-24 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* can also call a tool for 3D btagging now
+	* finalize() calls the finalizeHistos() of
+	the lifetime algtools because their finalize
+	is called AFTER the histo service is closed ...
+
+2004-08-20 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* BTaggingUtils/BJetLifetimeTag can be called via
+	jobOptions as two different instances (see CL of BTagggingUtils)
+	1D and 2D btagging results is combined to one likelihood
+	(sec vtx btag is also included if turned on)
+
+2004-08-18 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* adjusted to changes in BTaggingUtils-00-05-06
+
+2004-08-09 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* minor changes to constructor (because of dataType)
+	* added more documentation
+
+2004-08-02 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* prim vertex is set as origin of the bjet
+
+2004-07-26 Andreas Wildauer <andreas.wildauer@cern.ch>
+
+	* added this ChangeLog file
+	* added /doc
+	        /doc/mainpage.h
+
+
+	
